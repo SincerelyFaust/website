@@ -22,7 +22,7 @@ module.exports = {
     developer/public relations.
     Currently learning about open source, software development, graphic design, project management, marketing, enterprise,
     product management and motion design through various projects I work on while leading them to victory.
-    Making beautiful applications for <a class="underline-link" href="https://www.dahliaos.io/" target="_blank">dahliaOS</a> using Dart/Flutter in my free time.
+    Making beautiful applications for <a href=\"https://dahliaos.io\">dahliaOS</a>. using Dart/Flutter in my free time.
     P.S Always up for a collaboration/partnership/etc., feel free to contact me!`,
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     projects: [
