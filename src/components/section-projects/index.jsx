@@ -13,6 +13,7 @@ const SectionProjects = ({ projects }) => {
           key={project.name}
           name={project.name}
           description={project.description}
+          technology={project.technology}
           link={project.link}
         />
       ))}

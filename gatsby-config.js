@@ -3,7 +3,7 @@ module.exports = {
     // Site URL for when it goes live
     siteUrl: `https://marinhedes.com/`,
     // Your Name
-    name: 'Marin Heđeš',
+    name: `Marin Heđeš`,
     // Main Site Title
     title: `Marin Heđeš | Graphic/Motion Designer & Developer`,
     // Description that goes under your name in main bio
@@ -14,69 +14,81 @@ module.exports = {
     github: `https://github.com/sincerelyfaust`,
     // Optional: LinkedIn account URL
     linkedin: `https://www.linkedin.com/in/marinhedes/`,
+    // Optional: Instagram account URL
+    instagram: `https://www.instagram.com/marinhedes/`,
+    // Optional: Mail address URL
+    mail: `mailto:hedesmarin@gmail.com`,
     // Content of the About Me section
     about: `My name is Marin Heđeš, I'm a 20 year old self-taught graphic/motion designer and a developer based in Slavonski Brod, Croatia.
-    Aged 15, decided to skip on college and become a part of the open source community, learn new skills, get some experience and see
-    how far it can get me.
-    I specialize in graphic/motion design, building brands, marketing/advertising, project/product/community management,
-    developer/public relations.
+    I love learning and gathering new experiences which is what drives me to try something new every once in a while. Hate studying. Can't
+    live without music.
+    Aged 15, decided to skip on college and teach myself design and programming. Got into open source back in 2020, started learning new skills and getting experience in various fields
+    while building projects with great people and now I'm looking forward to where it'll take me next.
+    I specialize in graphic/motion design, building brands, marketing/advertising, project/product/community management, developer/public relations.
     Currently learning about open source, software development, graphic design, project management, marketing, enterprise,
     product management and motion design through various projects I work on while leading them to victory.
-    Making beautiful applications for dahliaOS using Dart/Flutter in my free time.
-    P.S Always up for a collaboration/partnership/etc., feel free to contact me!`,
+    Making beautiful applications for dahliaOS using Dart/Flutter in my free time.`,
+    // Optional: Write if you're available for hire
+    availability: `I'm available for collaborations/partnerships/etc. and am currently seeking full-time opportunities, feel free to contact me!`,
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     projects: [
       {
-        name: 'dahliaOS App store application',
+        name: `dahliaOS App store application`,
         description:
-          'App store application for publishing and installing applications on the dahliaOS platform.',
-        link: 'https://github.com/dahliaOS/app_store',
+          `App store application for publishing and installing applications on the dahliaOS platform.`,
+        technology: `Dart, Flutter`,
+        link: `https://github.com/dahliaOS/app_store`,
       },
       {
-        name: 'dahliaOS Welcome application',
+        name: `dahliaOS Welcome application`,
         description:
-          'Welcome application for getting started with the dahliaOS.',
-        link: 'https://github.com/dahliaOS/welcome',
+          `Welcome application for getting started with the dahliaOS.`,
+        technology: `Dart, Flutter`,
+        link: `https://github.com/dahliaOS/welcome`,
       },
     ],
     // Optional: List your experience, they must have `name` and `description`. `link` is optional.
     experience: [
       {
-        name: 'dahliaOS',
-        description: 'Founder, January 2020 - Present',
-        link: 'https://dahliaos.io',
+        name: `dahliaOS`,
+        position: `Founder`,
+        description: `Graphic/motion design, app development, project management, advertising, public relations`,
+        duration: `January 2020 - Present`,
+        link: `https://dahliaos.io`,
       },
       {
-        name: 'BlissLabs',
-        description: 'Design Lead / PR Lead / Business Director, February 2021 - June 2021',
-        link: 'https://blisslabs.org',
+        name: `BlissLabs`,
+        position: `Design Lead / PR Lead / Business Director`,
+        description: `Project/business management, graphic design, public relations`,
+        duration: `February 2021 - June 2021`,
+        link: `https://blisslabs.org`,
       },
     ],
     // Optional: List your skills, they must have `name` and `description`.
     skills: [
       {
-        name: 'Languages',
+        name: `Languages`,
         description:
-          'Dart',
+          `Dart`,
       },
       {
-        name: 'Frameworks',
-        description: 'Flutter',
+        name: `Frameworks`,
+        description: `Flutter`,
       },
       {
-        name: 'Graphic design',
+        name: `Graphic design`,
         description:
-          'Figma, Adobe Photoshop',
+          `Figma, Adobe Photoshop`,
       },
       {
-        name: 'Motion design',
+        name: `Motion design`,
         description:
-          'Adobe After Effects',
+          `Adobe After Effects`,
       },
       {
-        name: 'Tools',
+        name: `Tools`,
         description:
-          'Git, Linear',
+          `Git, Linear, VSCode, Google`,
       },
     ],
   },
