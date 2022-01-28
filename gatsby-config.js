@@ -24,7 +24,7 @@ module.exports = {
     live without music.
     Aged 15, decided to skip on college and teach myself design and programming. Got into open source back in 2020, started learning new skills and getting experience in various fields
     while building projects with great people and now I'm looking forward to where it'll take me next.
-    I specialize in graphic/motion design, building brands, marketing/advertising, project/product/community management, developer/public relations.
+    I specialize in graphic/motion design (branding, UI/UX, 3D, web design, photoshop, promo), building brands, marketing/advertising, project/product/community management, developer/public relations and app development.
     Currently learning about open source, software development, graphic design, project management, marketing, enterprise,
     product management and motion design through various projects I work on while leading them to victory.
     Making beautiful applications for dahliaOS using Dart/Flutter in my free time.`,
@@ -83,12 +83,12 @@ module.exports = {
       {
         name: `Motion design`,
         description:
-          `Adobe After Effects`,
+          `Adobe After Effects, Lottie`,
       },
       {
         name: `Tools`,
         description:
-          `Git, Linear, VSCode, Google`,
+          `Git, Linear, VSCode, Google, Facebook Business Suite, Google Ads`,
       },
     ],
   },
@@ -134,6 +134,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-dark-mode`,
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-google-analytics`,
