@@ -19,7 +19,7 @@ module.exports = {
     // Optional: Mail address URL
     mail: `mailto:hedesmarin@gmail.com`,
     // Content of the About Me section
-    about: `My name is Marin Heđeš, I'm a 20 year old self-taught graphic/motion designer and a developer based in Slavonski Brod, Croatia.
+    about: `My name is Marin Heđeš, I'm a 21 year old self-taught graphic/motion designer and a developer based in Slavonski Brod, Croatia.
     I love learning and gathering new experiences which is what drives me to try something new every once in a while. Hate studying. Can't
     live without music.
     Aged 15, decided to skip on college and teach myself design and programming. Got into open source back in 2020, started learning new skills and getting experience in various fields
