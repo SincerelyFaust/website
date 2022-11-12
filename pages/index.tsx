@@ -99,7 +99,7 @@ const Index: NextPage = () => {
             viewport={
               isWindowSizeSmall
                 ? { once: true, amount: 0.1 }
-                : { once: true, amount: 0.5 }
+                : { once: true, amount: 0.3 }
             }
           >
             <About />
@@ -112,7 +112,7 @@ const Index: NextPage = () => {
             viewport={
               isWindowSizeSmall
                 ? { once: true, amount: 0.1 }
-                : { once: true, amount: 0.5 }
+                : { once: true, amount: 0.3 }
             }
           >
             <Skills />
@@ -125,7 +125,7 @@ const Index: NextPage = () => {
             viewport={
               isWindowSizeSmall
                 ? { once: true, amount: 0.1 }
-                : { once: true, amount: 0.5 }
+                : { once: true, amount: 0.3 }
             }
           >
             <Projects />
@@ -138,7 +138,7 @@ const Index: NextPage = () => {
             viewport={
               isWindowSizeSmall
                 ? { once: true, amount: 0.1 }
-                : { once: true, amount: 0.5 }
+                : { once: true, amount: 0.3 }
             }
           >
             <Experience />
@@ -150,7 +150,7 @@ const Index: NextPage = () => {
             viewport={
               isWindowSizeSmall
                 ? { once: true, amount: 0.1 }
-                : { once: true, amount: 0.5 }
+                : { once: true, amount: 0.3 }
             }
           >
             <Footer />
