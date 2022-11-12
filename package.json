@@ -1,0 +1,50 @@
+{
+  "name": "portfolio",
+  "author": "Marin Heđeš",
+  "version": "1.0.0",
+  "description": "A modern portfolio template built with Next.js and Tailwind",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SincerelyFaust/portfolio"
+  },
+  "bugs": {
+    "url": "https://github.com/SincerelyFaust/portfolio/issues"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "city-timezones": "^1.2.1",
+    "country-list": "^2.2.0",
+    "dayjs": "^1.11.5",
+    "framer-motion": "^7.5.3",
+    "next": "^12.3.1",
+    "next-themes": "^0.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/country-list": "^2.1.1",
+    "@types/node": "18.8.5",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "autoprefixer": "^10.4.12",
+    "eslint": "^8.25.0",
+    "eslint-config-next": "^12.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "postcss": "^8.4.18",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.8",
+    "typescript": "4.8.4"
+  }
+}
