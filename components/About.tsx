@@ -21,7 +21,7 @@ const About = () => {
                     {allInformationChips.description.map(allItems => {
                       return (
                         <>
-                          <div className="w-fit h-fit flex items-center bg-slate-600 px-2 py-1 rounded-full">
+                          <div className="w-fit h-fit flex items-center bg-slate-300 dark:bg-slate-600 px-2 py-1 rounded-full">
                             <p className="text-xs">{allItems}</p>
                           </div>
                         </>
