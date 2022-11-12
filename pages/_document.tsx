@@ -37,6 +37,18 @@ export default class PortfolioDocument extends Document {
             href="/images/favicon/favicon-16x16.png"
           />
           <link rel="manifest" href="/site.webmanifest" />
+          <meta name="theme-color" content="#2563EB" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="#2563EB"
+          />
+          <meta name="apple-mobile-web-app-title" content={siteConfig.title} />
+          <meta
+            name="msapplication-TileImage"
+            content="/images/favicon/favicon.ico"
+          />
+          <meta name="msapplication-TileColor" content="#2563EB" />
         </Head>
         <body>
           <Main />
