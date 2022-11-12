@@ -22,11 +22,9 @@ const Error404: NextPage = () => {
         />
       </Head>
       <div className="overflow-hidden">
-        <div className="w-screen h-screen flex justify-center items-left px-80 flex-col gap-5 lg:px-20">
-          <p className="text-6xl font-bold sm:text-4xl">
-            😴 The developer was lazy.
-          </p>
-          <p className="text-4xl font-normal text-slate-600 sm:text-2xl">
+        <div className="w-screen h-screen flex justify-center items-left px-80 flex-col gap-5">
+          <p className="text-6xl font-bold">😴 The developer was lazy.</p>
+          <p className="text-4xl font-normal text-slate-600">
             Or maybe this page was never even planned.
           </p>
           <button

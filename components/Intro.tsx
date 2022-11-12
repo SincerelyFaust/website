@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import useMediaQuery from "../utils/hooks/useMediaQuery";
 import { siteConfig } from "../config";
 import {
   GitHubLogo,
@@ -32,41 +32,37 @@ const variantLeft: Variants = {
 };
 
 const Intro = () => {
-  const [windowSize, setWindowSize] = useState(0);
-
-  useEffect(() => {
-    setWindowSize(window.innerWidth);
-  }, []);
+  const isWindowSizeSmall = useMediaQuery("(max-width: 1075px)");
 
   return (
     <div>
-      {windowSize >= 1075 ? (
-        <div className="flex flex-row flex-wrap w-screen h-screen px-48 py-16 items-center justify-start gap-x-32 xl:justify-center xl:px-28 md:flex-col md:gap-0">
+      {isWindowSizeSmall ? (
+        <div className="flex flex-col w-screen h-screen px-16 items-center justify-center gap-y-5">
           <motion.img
             src="/images/profile/profile-picture.webp"
-            width="360"
-            height="360"
-            className="border-dashed border-8 border-blue-600 rounded-4xl"
+            width="140"
+            height="140"
+            className="border-dashed rounded-3xl border-8 border-blue-600"
             variants={variantRight}
             initial="hidden"
             animate="visible"
           />
           <motion.div
-            className="flex flex-1 flex-col text-left gap-7 xl:text-center xl:justify-center xl:items-center md:-mt-10"
+            className="flex flex-col text-center items-center justify-center gap-y-7"
             variants={variantLeft}
             initial="hidden"
             animate="visible"
           >
-            <h1 className="text-9xl font-bold text-blue-600 xl:text-6xl">
+            <h1 className="text-4xl font-bold text-blue-600">
               {siteConfig.name}
             </h1>
-            <p className="text-4xl font-medium">
+            <p className="text-2xl font-medium">
               {siteConfig.shortDescription}
             </p>
-            <div className="flex flex-row gap-3 flex-wrap xl:justify-center xl:items-center">
+            <div className="flex flex-col gap-3 justify-center items-center">
               {siteConfig.location.country.length > 0 ? (
                 <>
-                  <div className="h-10 w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4">
+                  <div className="h-fit w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4 py-2">
                     <p className="text-2xl">{GetFlagEmoji()}</p>
                     <p className="text-sm">
                       {siteConfig.location.country}
@@ -75,7 +71,7 @@ const Intro = () => {
                         : null}
                     </p>
                   </div>
-                  <div className="h-10 w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4">
+                  <div className="h-fit w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4 py-2">
                     <p className="text-sm">
                       ⏰ {GetTime()}{" "}
                       <span className="text-slate-500">
@@ -86,7 +82,7 @@ const Intro = () => {
                 </>
               ) : null}
               {siteConfig.availability === true ? (
-                <div className="h-10 w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4">
+                <div className="h-fit w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4 py-2">
                   <p className="text-sm">🏢 Available for hire</p>
                 </div>
               ) : null}
@@ -141,32 +137,32 @@ const Intro = () => {
           </motion.div>
         </div>
       ) : (
-        <div className="flex flex-col w-screen h-screen px-16 items-center justify-center gap-y-5">
+        <div className="flex flex-row flex-wrap w-screen h-screen px-48 py-16 items-center justify-start gap-x-32 xl:justify-center xl:px-28">
           <motion.img
             src="/images/profile/profile-picture.webp"
-            width="140"
-            height="140"
-            className="border-dashed rounded-3xl border-8 border-blue-600"
+            width="360"
+            height="360"
+            className="border-dashed border-8 border-blue-600 rounded-4xl"
             variants={variantRight}
             initial="hidden"
             animate="visible"
           />
           <motion.div
-            className="flex flex-col text-center items-center justify-center gap-y-7"
+            className="flex flex-1 flex-col text-left gap-7 xl:text-center xl:justify-center xl:items-center"
             variants={variantLeft}
             initial="hidden"
             animate="visible"
           >
-            <h1 className="text-4xl font-bold text-blue-600">
+            <h1 className="text-9xl font-bold text-blue-600 xl:text-6xl">
               {siteConfig.name}
             </h1>
-            <p className="text-2xl font-medium">
+            <p className="text-4xl font-medium">
               {siteConfig.shortDescription}
             </p>
-            <div className="flex flex-col gap-3 justify-center items-center">
+            <div className="flex flex-row gap-3 flex-wrap xl:justify-center xl:items-center">
               {siteConfig.location.country.length > 0 ? (
                 <>
-                  <div className="h-fit w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4 py-2">
+                  <div className="h-10 w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4">
                     <p className="text-2xl">{GetFlagEmoji()}</p>
                     <p className="text-sm">
                       {siteConfig.location.country}
@@ -175,7 +171,7 @@ const Intro = () => {
                         : null}
                     </p>
                   </div>
-                  <div className="h-fit w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4 py-2">
+                  <div className="h-10 w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4">
                     <p className="text-sm">
                       ⏰ {GetTime()}{" "}
                       <span className="text-slate-500">
@@ -186,7 +182,7 @@ const Intro = () => {
                 </>
               ) : null}
               {siteConfig.availability === true ? (
-                <div className="h-fit w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4 py-2">
+                <div className="h-10 w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4">
                   <p className="text-sm">🏢 Available for hire</p>
                 </div>
               ) : null}

@@ -44,7 +44,7 @@ const variantRightMobile: Variants = {
     opacity: 1,
     transition: { type: "spring", stiffness: 40, duration: 1 },
   },
-  hidden: { x: -50, opacity: 0 },
+  hidden: { x: -100, opacity: 0 },
 };
 
 const variantLeftMobile: Variants = {
@@ -53,7 +53,7 @@ const variantLeftMobile: Variants = {
     opacity: 1,
     transition: { type: "spring", stiffness: 40, duration: 1 },
   },
-  hidden: { x: 50, opacity: 0 },
+  hidden: { x: 100, opacity: 0 },
 };
 
 const footerVariantMobile: Variants = {
@@ -62,11 +62,20 @@ const footerVariantMobile: Variants = {
     opacity: 1,
     transition: { type: "spring", stiffness: 40, duration: 1 },
   },
-  hidden: { y: 50, opacity: 0 },
+  hidden: { y: 100, opacity: 0 },
+};
+
+const navbarVariant: Variants = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { type: "spring", stiffness: 40, duration: 1 },
+  },
+  hidden: { y: -500, opacity: 0 },
 };
 
 const Index: NextPage = () => {
-  const isWindowSizeSmall = useMediaQuery("(max-width: 1025px)");
+  const isWindowSizeSmall = useMediaQuery("(max-width: 1075px)");
 
   return (
     <>
@@ -75,9 +84,9 @@ const Index: NextPage = () => {
         <meta property="og:title" content={siteConfig.title} key="title" />
       </Head>
       <div className="overflow-hidden">
-        <div>
+        <motion.div variants={navbarVariant} initial="hidden" animate="visible">
           <Navbar />
-        </div>
+        </motion.div>
         <div>
           <Intro />
         </div>
@@ -141,7 +150,7 @@ const Index: NextPage = () => {
             viewport={
               isWindowSizeSmall
                 ? { once: true, amount: 0.1 }
-                : { once: true, amount: 0.6 }
+                : { once: true, amount: 0.5 }
             }
           >
             <Footer />

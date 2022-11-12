@@ -4,15 +4,6 @@ import { useState } from "react";
 import useMediaQuery from "../utils/hooks/useMediaQuery";
 import { HamburgerMenu } from "./Icons";
 
-const navbarVariant: Variants = {
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: "spring", stiffness: 40, duration: 1 },
-  },
-  hidden: { y: -500, opacity: 0 },
-};
-
 const openedVariant: Variants = {
   visible: {
     opacity: 1,
@@ -24,18 +15,13 @@ const openedVariant: Variants = {
 };
 
 const Navbar = () => {
-  const isWindowSizeSmall = useMediaQuery("(max-width: 1025px)");
+  const isWindowSizeSmall = useMediaQuery("(max-width: 1075px)");
   const [isClicked, setClicked] = useState(false);
 
   return (
     <div>
       {isWindowSizeSmall ? (
-        <motion.nav
-          className="flex w-full h-fit justify-start items-start"
-          variants={navbarVariant}
-          initial="hidden"
-          animate="visible"
-        >
+        <nav className="flex w-full h-fit justify-start items-start">
           <button
             type="button"
             onClick={() => setClicked(!isClicked)}
@@ -76,14 +62,9 @@ const Navbar = () => {
               </Link>
             </motion.div>
           ) : null}
-        </motion.nav>
+        </nav>
       ) : (
-        <motion.nav
-          className="flex flex-row flex-wrap w-full h-fit py-14 px-16 justify-center items-center text-blue-600 gap-x-28 gap-y-10 text-xl font-semibold absolute bg-transparent"
-          variants={navbarVariant}
-          initial="hidden"
-          animate="visible"
-        >
+        <nav className="flex flex-row flex-wrap w-full h-fit py-14 px-16 justify-center items-center text-blue-600 gap-x-28 gap-y-10 text-xl font-semibold absolute bg-transparent">
           <Link
             href="#about"
             className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm"
@@ -108,7 +89,7 @@ const Navbar = () => {
           >
             📈 Experience
           </Link>
-        </motion.nav>
+        </nav>
       )}
     </div>
   );
