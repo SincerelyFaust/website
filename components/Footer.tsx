@@ -11,13 +11,13 @@ const Footer = () => {
             <p className="text-2xl">{categories.category}</p>
             {categories.links.map(allLinks => {
               return (
-                <Link href={allLinks.url} key={"footerLinkKey"}>
-                  <a
-                    className="text-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-                    target="_blank"
-                  >
-                    {allLinks.name}
-                  </a>
+                <Link
+                  href={allLinks.url}
+                  key={"footerLinkKey"}
+                  className="text-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                  target="_blank"
+                >
+                  {allLinks.name}
                 </Link>
               );
             })}

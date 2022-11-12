@@ -26,7 +26,6 @@ A portfolio template for which you need no coding skills.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSincerelyFaust%2Fportfolio&project-name=portoflio&repo-name=portfolio&demo-title=Portfolio&demo-description=A%20Next.js%20portfolio%20template%20by%20Marin%20He%C4%91e%C5%A1&demo-url=https%3A%2F%2Fmarinhedes.com&demo-image=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F44751736%3Fv%3D4)
 
-
 #### Netlify
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sincerelyfaust/portfolio)

@@ -50,25 +50,29 @@ const Navbar = () => {
               initial="hidden"
               animate="visible"
             >
-              <Link href="#about" passHref>
-                <a className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm">
-                  🤷‍♂️ About
-                </a>
+              <Link
+                href="#about"
+                className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm"
+              >
+                🤷‍♂️ About
               </Link>
-              <Link href="#skills" passHref>
-                <a className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm">
-                  💪 Skills
-                </a>
+              <Link
+                href="#skills"
+                className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm"
+              >
+                💪 Skills
               </Link>
-              <Link href="#projects" passHref>
-                <a className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm">
-                  👨‍💻 Projects
-                </a>
+              <Link
+                href="#projects"
+                className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm"
+              >
+                👨‍💻 Projects
               </Link>
-              <Link href="#experience" passHref>
-                <a className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm">
-                  📈 Experience
-                </a>
+              <Link
+                href="#experience"
+                className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm"
+              >
+                📈 Experience
               </Link>
             </motion.div>
           ) : null}
@@ -80,25 +84,29 @@ const Navbar = () => {
           initial="hidden"
           animate="visible"
         >
-          <Link href="#about" passHref>
-            <a className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm">
-              🤷‍♂️ About
-            </a>
+          <Link
+            href="#about"
+            className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm"
+          >
+            🤷‍♂️ About
           </Link>
-          <Link href="#skills" passHref>
-            <a className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm">
-              💪 Skills
-            </a>
+          <Link
+            href="#skills"
+            className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm"
+          >
+            💪 Skills
           </Link>
-          <Link href="#projects" passHref>
-            <a className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm">
-              👨‍💻 Projects
-            </a>
+          <Link
+            href="#projects"
+            className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm"
+          >
+            👨‍💻 Projects
           </Link>
-          <Link href="#experience" passHref>
-            <a className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm">
-              📈 Experience
-            </a>
+          <Link
+            href="#experience"
+            className="dark:hover:text-blue-300 hover:text-blue-500 hover:outline-dashed hover:outline-4 hover:outline-offset-8 hover:rounded-sm"
+          >
+            📈 Experience
           </Link>
         </motion.nav>
       )}

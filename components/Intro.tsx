@@ -95,45 +95,46 @@ const Intro = () => {
               {siteConfig.twitter.length > 0 ? (
                 <Link
                   href={`https://twitter.com/${siteConfig.twitter}`}
-                  passHref
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a target="_blank" rel="noopener noreferrer">
-                    <TwitterLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                  <TwitterLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
               {siteConfig.github.length > 0 ? (
-                <Link href={`https://github.com/${siteConfig.github}`} passHref>
-                  <a target="_blank" rel="noopener noreferrer">
-                    <GitHubLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                <Link
+                  href={`https://github.com/${siteConfig.github}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GitHubLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
               {siteConfig.linkedin.length > 0 ? (
                 <Link
                   href={`https://www.linkedin.com/in/${siteConfig.linkedin}`}
-                  passHref
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a target="_blank" rel="noopener noreferrer">
-                    <LinkedInLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                  <LinkedInLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
               {siteConfig.instagram.length > 0 ? (
                 <Link
                   href={`https://instagram.com/${siteConfig.instagram}`}
-                  passHref
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a target="_blank" rel="noopener noreferrer">
-                    <InstagramLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                  <InstagramLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
               {siteConfig.mail.length > 0 ? (
-                <Link href={`mailto:${siteConfig.mail}`} passHref>
-                  <a target="_blank" rel="noopener noreferrer">
-                    <MailLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                <Link
+                  href={`mailto:${siteConfig.mail}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MailLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
             </div>
@@ -194,45 +195,46 @@ const Intro = () => {
               {siteConfig.twitter.length > 0 ? (
                 <Link
                   href={`https://twitter.com/${siteConfig.twitter}`}
-                  passHref
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a target="_blank" rel="noopener noreferrer">
-                    <TwitterLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                  <TwitterLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
               {siteConfig.github.length > 0 ? (
-                <Link href={`https://github.com/${siteConfig.github}`} passHref>
-                  <a target="_blank" rel="noopener noreferrer">
-                    <GitHubLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                <Link
+                  href={`https://github.com/${siteConfig.github}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GitHubLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
               {siteConfig.linkedin.length > 0 ? (
                 <Link
                   href={`https://www.linkedin.com/in/${siteConfig.linkedin}`}
-                  passHref
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a target="_blank" rel="noopener noreferrer">
-                    <LinkedInLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                  <LinkedInLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
               {siteConfig.instagram.length > 0 ? (
                 <Link
                   href={`https://instagram.com/${siteConfig.instagram}`}
-                  passHref
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a target="_blank" rel="noopener noreferrer">
-                    <InstagramLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                  <InstagramLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
               {siteConfig.mail.length > 0 ? (
-                <Link href={`mailto:${siteConfig.mail}`} passHref>
-                  <a target="_blank" rel="noopener noreferrer">
-                    <MailLogo className="hover:fill-blue-400 fill-blue-600" />
-                  </a>
+                <Link
+                  href={`mailto:${siteConfig.mail}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MailLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
               ) : null}
             </div>

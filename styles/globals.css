@@ -21,10 +21,7 @@ body {
   width: 100vw;
   overflow-x: hidden;
   background: rgb(12, 12, 12);
-  background-image: radial-gradient(
-    rgba(37, 99, 235, 0.3) 1px,
-    transparent 0
-  );
+  background-image: radial-gradient(rgba(37, 99, 235, 0.3) 1px, transparent 0);
   background-size: 40px 40px;
   background-position: -19px -19px;
 }
@@ -47,5 +44,4 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgb(37, 99, 235);
   border-radius: 8px;
-;
 }

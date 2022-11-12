@@ -21,14 +21,13 @@ const Projects = () => {
               return (
                 <>
                   <div className="text-left flex flex-col gap-x-10 gap-y-5 w-96">
-                    <Link href={allProjects.link} passHref>
-                      <a
-                        className="text-3xl font-bold hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {allProjects.name} ↗
-                      </a>
+                    <Link
+                      href={allProjects.link}
+                      className="text-3xl font-bold hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {allProjects.name} ↗
                     </Link>
                     <div className="flex flex-row flex-wrap gap-4">
                       {allProjects.technologies.map(allTechnologies => {
@@ -58,14 +57,13 @@ const Projects = () => {
               return (
                 <>
                   <div className="text-left flex flex-col gap-y-3">
-                    <Link href={allProjects.link} passHref>
-                      <a
-                        className="text-2xl font-bold hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {allProjects.name} ↗
-                      </a>
+                    <Link
+                      href={allProjects.link}
+                      className="text-2xl font-bold hover:underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {allProjects.name} ↗
                     </Link>
                     <div className="flex flex-row flex-wrap gap-4">
                       {allProjects.technologies.map(allTechnologies => {

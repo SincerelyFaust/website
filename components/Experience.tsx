@@ -36,14 +36,13 @@ const Experience = () => {
                       <div className="flex w-full bg-gray-300 h-0.5 dark:bg-gray-600"></div>
                     </div>
                     <div className="mt-3 pr-8 flex flex-col gap-y-3">
-                      <Link href={allCompanies.link} passHref>
-                        <a
-                          className="text-3xl font-bold hover:underline"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {allCompanies.name} ↗
-                        </a>
+                      <Link
+                        href={allCompanies.link}
+                        className="text-3xl font-bold hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {allCompanies.name} ↗
                       </Link>
                       <p className="font-light text-2xl text-gray-400">
                         {getDate(
@@ -93,14 +92,13 @@ const Experience = () => {
                       <div className="flex w-full bg-gray-300 h-0.5 dark:bg-gray-600"></div>
                     </div>
                     <div className="mt-3 pr-8 flex flex-col gap-y-3">
-                      <Link href={allCompanies.link} passHref>
-                        <a
-                          className="text-2xl font-bold hover:underline"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {allCompanies.name} ↗
-                        </a>
+                      <Link
+                        href={allCompanies.link}
+                        className="text-2xl font-bold hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {allCompanies.name} ↗
                       </Link>
                       <p className="font-light text-xl text-gray-400">
                         {getDate(
