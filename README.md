@@ -100,9 +100,9 @@ public
 
 **Note:** for generating favicons located in [`public/images/favicon`](/public/images/) folder, you can use [this service](https://favicon.io/favicon-converter/).
 
-- Short links
+- Redirects
 
-Short links are defined in [`next.config.js`](next.config.js).
+Redirects are defined in [`next.config.js`](next.config.js). Example, you can make short URL links like `https://yoursite.com/twitter` and have it lead to your Twitter account.
 
 ### Deploy
 
