@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import { siteConfig } from "../config";
-import { useEffect, useState } from "react";
+import useMediaQuery from "../utils/hooks/useMediaQuery";
 
 const variantRight: Variants = {
   visible: {
@@ -44,7 +44,7 @@ const variantRightMobile: Variants = {
     opacity: 1,
     transition: { type: "spring", stiffness: 40, duration: 1 },
   },
-  hidden: { x: -100, opacity: 0 },
+  hidden: { x: -50, opacity: 0 },
 };
 
 const variantLeftMobile: Variants = {
@@ -53,7 +53,7 @@ const variantLeftMobile: Variants = {
     opacity: 1,
     transition: { type: "spring", stiffness: 40, duration: 1 },
   },
-  hidden: { x: 100, opacity: 0 },
+  hidden: { x: 50, opacity: 0 },
 };
 
 const footerVariantMobile: Variants = {
@@ -62,15 +62,11 @@ const footerVariantMobile: Variants = {
     opacity: 1,
     transition: { type: "spring", stiffness: 40, duration: 1 },
   },
-  hidden: { y: 75, opacity: 0 },
+  hidden: { y: 50, opacity: 0 },
 };
 
 const Index: NextPage = () => {
-  const [windowSize, setWindowSize] = useState(0);
-
-  useEffect(() => {
-    setWindowSize(window.innerWidth);
-  }, []);
+  const isWindowSizeSmall = useMediaQuery("(max-width: 1025px)");
 
   return (
     <>
@@ -86,101 +82,70 @@ const Index: NextPage = () => {
           <Intro />
         </div>
         <div className="flex flex-col gap-40">
-          {windowSize >= 1025 ? (
-            <>
-              <motion.div
-                id="about"
-                variants={variantRight}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-              >
-                <About />
-              </motion.div>
-              <motion.div
-                id="skills"
-                variants={variantLeft}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-              >
-                <Skills />
-              </motion.div>
-              <motion.div
-                id="projects"
-                variants={variantRight}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-              >
-                <Projects />
-              </motion.div>
-              <motion.div
-                id="experience"
-                variants={variantLeft}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.4 }}
-              >
-                <Experience />
-              </motion.div>
-              <motion.div
-                variants={footerVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-              >
-                <Footer />
-              </motion.div>
-            </>
-          ) : (
-            <>
-              <motion.div
-                id="about"
-                variants={variantRightMobile}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-              >
-                <About />
-              </motion.div>
-              <motion.div
-                id="skills"
-                variants={variantLeftMobile}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-              >
-                <Skills />
-              </motion.div>
-              <motion.div
-                id="projects"
-                variants={variantRightMobile}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.25 }}
-              >
-                <Projects />
-              </motion.div>
-              <motion.div
-                id="experience"
-                variants={variantLeftMobile}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.18 }}
-              >
-                <Experience />
-              </motion.div>
-              <motion.div
-                variants={footerVariantMobile}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-              >
-                <Footer />
-              </motion.div>
-            </>
-          )}
+          <motion.div
+            id="about"
+            variants={isWindowSizeSmall ? variantRightMobile : variantRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={
+              isWindowSizeSmall
+                ? { once: true, amount: 0.1 }
+                : { once: true, amount: 0.5 }
+            }
+          >
+            <About />
+          </motion.div>
+          <motion.div
+            id="skills"
+            variants={isWindowSizeSmall ? variantLeftMobile : variantLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={
+              isWindowSizeSmall
+                ? { once: true, amount: 0.1 }
+                : { once: true, amount: 0.5 }
+            }
+          >
+            <Skills />
+          </motion.div>
+          <motion.div
+            id="projects"
+            variants={isWindowSizeSmall ? variantRightMobile : variantRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={
+              isWindowSizeSmall
+                ? { once: true, amount: 0.1 }
+                : { once: true, amount: 0.5 }
+            }
+          >
+            <Projects />
+          </motion.div>
+          <motion.div
+            id="experience"
+            variants={isWindowSizeSmall ? variantLeftMobile : variantLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={
+              isWindowSizeSmall
+                ? { once: true, amount: 0.1 }
+                : { once: true, amount: 0.5 }
+            }
+          >
+            <Experience />
+          </motion.div>
+          <motion.div
+            variants={isWindowSizeSmall ? footerVariantMobile : footerVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={
+              isWindowSizeSmall
+                ? { once: true, amount: 0.1 }
+                : { once: true, amount: 0.6 }
+            }
+          >
+            <Footer />
+          </motion.div>
         </div>
       </div>
     </>

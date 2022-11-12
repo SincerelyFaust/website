@@ -144,8 +144,8 @@ const Intro = () => {
         <div className="flex flex-col w-screen h-screen px-16 items-center justify-center gap-y-5">
           <motion.img
             src="/images/profile/profile-picture.webp"
-            width="180"
-            height="180"
+            width="140"
+            height="140"
             className="border-dashed rounded-3xl border-8 border-blue-600"
             variants={variantRight}
             initial="hidden"
@@ -157,10 +157,10 @@ const Intro = () => {
             initial="hidden"
             animate="visible"
           >
-            <h1 className="text-7xl font-bold text-blue-600">
+            <h1 className="text-4xl font-bold text-blue-600">
               {siteConfig.name}
             </h1>
-            <p className="text-3xl font-medium">
+            <p className="text-2xl font-medium">
               {siteConfig.shortDescription}
             </p>
             <div className="flex flex-col gap-3 justify-center items-center">
