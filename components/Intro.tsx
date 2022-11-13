@@ -13,6 +13,7 @@ import { getFlagEmoji } from "../utils/GetFlagEmoji";
 import { calculateHourDifference } from "../utils/CalculateHourDIfference";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
+import profilePicture from "../public/images/profile/profile-picture.webp";
 
 const variantRight: Variants = {
   visible: {
@@ -46,11 +47,14 @@ const Intro = () => {
             className="relative"
           >
             <Image
-              src="/images/profile/profile-picture.webp"
+              src={profilePicture}
               width="140"
               height="140"
               className="border-dashed rounded-3xl border-8 border-blue-600"
               alt="profile picture"
+              priority
+              quality={100}
+              placeholder="blur"
             />
           </motion.div>
           <motion.div
@@ -156,11 +160,14 @@ const Intro = () => {
             className="relative"
           >
             <Image
-              src="/images/profile/profile-picture.webp"
+              src={profilePicture}
               width="360"
               height="360"
               className="border-dashed border-8 border-blue-600 rounded-4xl"
               alt="profile picture"
+              priority
+              quality={100}
+              placeholder="blur"
             />
           </motion.div>
           <motion.div
