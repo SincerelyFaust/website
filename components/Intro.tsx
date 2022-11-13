@@ -80,7 +80,7 @@ const Intro = () => {
                   <div className="h-fit w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4 py-2">
                     <p className="text-sm">
                       ⏰ {getTime()}{" "}
-                      <span className="text-slate-500">
+                      <span className="dark:text-slate-400 text-slate-500">
                         {calculateHourDifference()}
                       </span>
                     </p>
@@ -99,6 +99,7 @@ const Intro = () => {
                   href={`https://twitter.com/${siteConfig.twitter}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link to the Twitter account"
                 >
                   <TwitterLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
@@ -108,6 +109,7 @@ const Intro = () => {
                   href={`https://github.com/${siteConfig.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link to the GitHub account"
                 >
                   <GitHubLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
@@ -117,6 +119,7 @@ const Intro = () => {
                   href={`https://www.linkedin.com/in/${siteConfig.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link to the LinkedIn account"
                 >
                   <LinkedInLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
@@ -126,6 +129,7 @@ const Intro = () => {
                   href={`https://instagram.com/${siteConfig.instagram}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link to the Instagram account"
                 >
                   <InstagramLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
@@ -135,6 +139,7 @@ const Intro = () => {
                   href={`mailto:${siteConfig.mail}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link for sending me a mail"
                 >
                   <MailLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
@@ -185,7 +190,7 @@ const Intro = () => {
                   <div className="h-10 w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4">
                     <p className="text-sm">
                       ⏰ {getTime()}{" "}
-                      <span className="text-slate-500">
+                      <span className="dark:text-slate-400 text-slate-500">
                         {calculateHourDifference()}
                       </span>
                     </p>
@@ -204,6 +209,7 @@ const Intro = () => {
                   href={`https://twitter.com/${siteConfig.twitter}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link to the Twitter account"
                 >
                   <TwitterLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
@@ -213,6 +219,7 @@ const Intro = () => {
                   href={`https://github.com/${siteConfig.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link to the GitHub account"
                 >
                   <GitHubLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
@@ -222,6 +229,7 @@ const Intro = () => {
                   href={`https://www.linkedin.com/in/${siteConfig.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link to the LinkedIn account"
                 >
                   <LinkedInLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
@@ -231,6 +239,7 @@ const Intro = () => {
                   href={`https://instagram.com/${siteConfig.instagram}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link to the Instagram account"
                 >
                   <InstagramLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
@@ -240,6 +249,7 @@ const Intro = () => {
                   href={`mailto:${siteConfig.mail}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Link for sending me a mail"
                 >
                   <MailLogo className="hover:fill-blue-400 fill-blue-600" />
                 </Link>
