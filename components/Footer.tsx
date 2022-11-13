@@ -4,7 +4,7 @@ import ThemeSwitch from "./ThemeSwitch";
 
 const Footer = () => {
   return (
-    <div className="flex flex-row flex-wrap w-screen h-fit justify-between items-baseline px-40 gap-10 mb-40 lg:px-24">
+    <div className="flex flex-row flex-wrap w-screen h-fit justify-between items-start px-40 gap-10 mb-40 lg:px-24">
       {siteConfig.footer.map(categories => {
         return (
           <div className="flex flex-col gap-2" key={"footerDivKey"}>
