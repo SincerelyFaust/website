@@ -26,6 +26,7 @@ const Navbar = () => {
             type="button"
             onClick={() => setClicked(!isClicked)}
             className="z-10 m-8 absolute text-black dark:text-white"
+            aria-label="Navigation bar button"
           >
             <HamburgerMenu width={50} height={50} />
           </button>
