@@ -46,6 +46,7 @@ const Intro = () => {
             variants={variantRight}
             initial="hidden"
             animate="visible"
+            alt="profile picture"
           />
           <motion.div
             className="flex flex-col text-center items-center justify-center gap-y-7"
@@ -146,6 +147,7 @@ const Intro = () => {
             variants={variantRight}
             initial="hidden"
             animate="visible"
+            alt="profile picture"
           />
           <motion.div
             className="flex flex-1 flex-col text-left gap-7 xl:text-center xl:justify-center xl:items-center"
