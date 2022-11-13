@@ -44,7 +44,7 @@ const Intro = () => {
             variants={variantRight}
             initial="hidden"
             animate="visible"
-            className="relative"
+            className="relative -z-10"
           >
             <Image
               src={profilePicture}
@@ -157,7 +157,7 @@ const Intro = () => {
             variants={variantRight}
             initial="hidden"
             animate="visible"
-            className="relative"
+            className="relative -z-10"
           >
             <Image
               src={profilePicture}
