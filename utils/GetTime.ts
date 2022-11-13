@@ -1,7 +1,7 @@
 import { siteConfig } from "../config";
 import cityTimezones from "city-timezones";
 
-export function GetTime() {
+export function getTime() {
   const options: Intl.DateTimeFormatOptions = {
       timeZone: cityTimezones.lookupViaCity(siteConfig.location.city).at(0)
         ?.timezone,

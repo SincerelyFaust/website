@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
-import { GetTime } from "./GetTime";
+import { getTime } from "./GetTime";
 
-export function CalculateHourDifference() {
+export function calculateHourDifference() {
   const clientTime = dayjs();
-  const localTime = dayjs(GetTime());
+  const localTime = dayjs(getTime());
   const timeDiff = localTime.diff(clientTime, "hour");
 
   if (timeDiff < 0) {

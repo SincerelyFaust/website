@@ -8,9 +8,9 @@ import {
   MailLogo,
   TwitterLogo,
 } from "./Icons";
-import { GetTime } from "../utils/GetTime";
-import { GetFlagEmoji } from "../utils/GetFlagEmoji";
-import { CalculateHourDifference } from "../utils/CalculateHourDIfference";
+import { getTime } from "../utils/GetTime";
+import { getFlagEmoji } from "../utils/GetFlagEmoji";
+import { calculateHourDifference } from "../utils/CalculateHourDIfference";
 import { motion, Variants } from "framer-motion";
 
 const variantRight: Variants = {
@@ -63,7 +63,7 @@ const Intro = () => {
               {siteConfig.location.country.length > 0 ? (
                 <>
                   <div className="h-fit w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4 py-2">
-                    <p className="text-2xl">{GetFlagEmoji()}</p>
+                    <p className="text-2xl">{getFlagEmoji()}</p>
                     <p className="text-sm">
                       {siteConfig.location.country}
                       {siteConfig.location.city.length > 0
@@ -73,9 +73,9 @@ const Intro = () => {
                   </div>
                   <div className="h-fit w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4 py-2">
                     <p className="text-sm">
-                      ⏰ {GetTime()}{" "}
+                      ⏰ {getTime()}{" "}
                       <span className="text-slate-500">
-                        {CalculateHourDifference()}
+                        {calculateHourDifference()}
                       </span>
                     </p>
                   </div>
@@ -163,7 +163,7 @@ const Intro = () => {
               {siteConfig.location.country.length > 0 ? (
                 <>
                   <div className="h-10 w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4">
-                    <p className="text-2xl">{GetFlagEmoji()}</p>
+                    <p className="text-2xl">{getFlagEmoji()}</p>
                     <p className="text-sm">
                       {siteConfig.location.country}
                       {siteConfig.location.city.length > 0
@@ -173,9 +173,9 @@ const Intro = () => {
                   </div>
                   <div className="h-10 w-fit rounded-full flex items-center justify-center text-center gap-x-1 dark:bg-slate-800 bg-slate-200 px-4">
                     <p className="text-sm">
-                      ⏰ {GetTime()}{" "}
+                      ⏰ {getTime()}{" "}
                       <span className="text-slate-500">
-                        {CalculateHourDifference()}
+                        {calculateHourDifference()}
                       </span>
                     </p>
                   </div>
