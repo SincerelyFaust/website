@@ -11,9 +11,7 @@ const Experience = () => {
     <div>
       {isWindowSizeSmall ? (
         <div className="flex flex-col px-20 w-screen h-fit items-center justify-center gap-20">
-          <h1 className="text-[2.3rem] font-bold text-blue-600">
-            📈 Experience
-          </h1>
+          <p className="text-[2.3rem] font-bold text-blue-600">📈 Experience</p>
           <ol
             className="items-baseline flex flex-row justify-end flex-wrap gap-y-10"
             key="{ExperienceListKey}"
@@ -67,7 +65,7 @@ const Experience = () => {
         </div>
       ) : (
         <div className="flex flex-col px-48 w-screen h-fit items-end justify-end gap-20">
-          <h1 className="text-9xl font-bold text-blue-600">📈 Experience</h1>
+          <p className="text-9xl font-bold text-blue-600">📈 Experience</p>
           <ol
             className="items-baseline flex flex-row justify-end flex-wrap gap-y-10"
             key="{ExperienceListKey}"

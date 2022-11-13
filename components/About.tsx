@@ -8,7 +8,7 @@ const About = () => {
     <div>
       {isWindowSizeSmall ? (
         <div className="flex flex-col px-20 w-screen h-fit items-center justify-center gap-10">
-          <h1 className="text-5xl font-bold text-blue-600">🤷‍♂️ About</h1>
+          <p className="text-5xl font-bold text-blue-600">🤷‍♂️ About</p>
           {siteConfig.infoChips.length > 0 ? (
             <div className="flex flex-row flex-wrap gap-5">
               {siteConfig.infoChips.map(allInformationChips => {
@@ -38,7 +38,7 @@ const About = () => {
         </div>
       ) : (
         <div className="flex flex-col px-48 w-screen h-fit items-start justify-start gap-10 ">
-          <h1 className="text-9xl font-bold text-blue-600 ">🤷‍♂️ About</h1>
+          <p className="text-9xl font-bold text-blue-600 ">🤷‍♂️ About</p>
           {siteConfig.infoChips.length > 0 ? (
             <div className="flex flex-row flex-wrap gap-5">
               {siteConfig.infoChips.map(allInformationChips => {

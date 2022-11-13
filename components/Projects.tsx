@@ -9,7 +9,7 @@ const Projects = () => {
     <div>
       {isWindowSizeSmall ? (
         <div className="flex flex-col px-20 w-screen h-fit items-center justify-center gap-20">
-          <h1 className="text-[2.8rem] font-bold text-blue-600">👨‍💻 Projects</h1>
+          <p className="text-[2.8rem] font-bold text-blue-600">👨‍💻 Projects</p>
           <div className="flex flex-col gap-10">
             {siteConfig.projects.map(allProjects => {
               return (
@@ -45,7 +45,7 @@ const Projects = () => {
         </div>
       ) : (
         <div className="flex flex-col px-48 w-screen h-fit items-start justify-start gap-20">
-          <h1 className="text-9xl font-bold text-blue-600">👨‍💻 Projects</h1>
+          <p className="text-9xl font-bold text-blue-600">👨‍💻 Projects</p>
           <div className="flex flex-row flex-wrap justify-between gap-10 w-full">
             {siteConfig.projects.map(allProjects => {
               return (

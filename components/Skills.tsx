@@ -8,7 +8,7 @@ const Skills = () => {
     <div>
       {isWindowSizeSmall ? (
         <div className="flex flex-col px-20 w-screen h-fit items-center justify-center gap-20">
-          <h1 className="text-5xl font-bold text-blue-600">💪 Skills</h1>
+          <p className="text-5xl font-bold text-blue-600">💪 Skills</p>
           <div className="flex flex-col-reverse gap-20 w-full justify-center items-center text-center">
             {siteConfig.skills.map(allSkills => {
               return (
@@ -34,7 +34,7 @@ const Skills = () => {
         </div>
       ) : (
         <div className="flex flex-col px-48 w-screen h-fit items-end justify-end gap-20">
-          <h1 className="text-9xl font-bold text-blue-600">💪 Skills</h1>
+          <p className="text-9xl font-bold text-blue-600">💪 Skills</p>
           <div className="flex flex-row-reverse flex-wrap justify-between gap-20 w-full items-start">
             {siteConfig.skills.map(allSkills => {
               return (
