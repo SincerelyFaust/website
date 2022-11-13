@@ -12,6 +12,7 @@ import { getTime } from "../utils/GetTime";
 import { getFlagEmoji } from "../utils/GetFlagEmoji";
 import { calculateHourDifference } from "../utils/CalculateHourDIfference";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 
 const variantRight: Variants = {
   visible: {
@@ -38,16 +39,20 @@ const Intro = () => {
     <div>
       {isWindowSizeSmall ? (
         <div className="flex flex-col w-screen h-screen px-16 items-center justify-center gap-y-5">
-          <motion.img
-            src="/images/profile/profile-picture.webp"
-            width="140"
-            height="140"
-            className="border-dashed rounded-3xl border-8 border-blue-600"
+          <motion.div
             variants={variantRight}
             initial="hidden"
             animate="visible"
-            alt="profile picture"
-          />
+            className="relative"
+          >
+            <Image
+              src="/images/profile/profile-picture.webp"
+              width="140"
+              height="140"
+              className="border-dashed rounded-3xl border-8 border-blue-600"
+              alt="profile picture"
+            />
+          </motion.div>
           <motion.div
             className="flex flex-col text-center items-center justify-center gap-y-7"
             variants={variantLeft}
@@ -139,16 +144,20 @@ const Intro = () => {
         </div>
       ) : (
         <div className="flex flex-row flex-wrap w-screen h-screen px-48 py-16 items-center justify-start gap-x-32 xl:justify-center xl:px-28">
-          <motion.img
-            src="/images/profile/profile-picture.webp"
-            width="360"
-            height="360"
-            className="border-dashed border-8 border-blue-600 rounded-4xl"
+          <motion.div
             variants={variantRight}
             initial="hidden"
             animate="visible"
-            alt="profile picture"
-          />
+            className="relative"
+          >
+            <Image
+              src="/images/profile/profile-picture.webp"
+              width="360"
+              height="360"
+              className="border-dashed border-8 border-blue-600 rounded-4xl"
+              alt="profile picture"
+            />
+          </motion.div>
           <motion.div
             className="flex flex-1 flex-col text-left gap-7 xl:text-center xl:justify-center xl:items-center"
             variants={variantLeft}
