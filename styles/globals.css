@@ -26,13 +26,6 @@ body {
   background-position: -19px -19px;
 }
 
-@font-face {
-  font-family: "Inter";
-  src: url("../public/fonts/Inter.ttf");
-  font-weight: 1 999;
-  font-display: swap;
-}
-
 ::-webkit-scrollbar {
   width: 0.25em;
 }

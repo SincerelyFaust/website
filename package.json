@@ -20,6 +20,7 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@next/font": "^13.0.3",
     "city-timezones": "^1.2.1",
     "country-list": "^2.2.0",
     "dayjs": "^1.11.6",

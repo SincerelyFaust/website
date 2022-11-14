@@ -2,6 +2,12 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
+import { Inter } from "@next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 function Portfolio({ Component, pageProps }: AppProps) {
   return (
@@ -14,7 +20,9 @@ function Portfolio({ Component, pageProps }: AppProps) {
         defaultTheme="system"
         attribute="class"
       >
-        <Component {...pageProps} />
+        <main className={`${inter.variable} font-sans`}>
+          <Component {...pageProps} />
+        </main>
       </ThemeProvider>
     </>
   );
