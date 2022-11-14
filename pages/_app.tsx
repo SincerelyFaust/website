@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import { Inter } from "@next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ function Portfolio({ Component, pageProps }: AppProps) {
       >
         <main className={`${inter.variable} font-sans`}>
           <Component {...pageProps} />
+          <Analytics />
         </main>
       </ThemeProvider>
     </>
