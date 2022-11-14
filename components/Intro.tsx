@@ -50,7 +50,7 @@ const Intro = () => {
               src={profilePicture}
               width="140"
               height="140"
-              className="border-dashed rounded-3xl border-8 border-blue-600"
+              className="border-dashed rounded-[5rem] border-8 border-blue-600"
               alt="profile picture"
               priority
               quality={100}
@@ -163,7 +163,7 @@ const Intro = () => {
               src={profilePicture}
               width="360"
               height="360"
-              className="border-dashed border-8 border-blue-600 rounded-4xl"
+              className="border-dashed border-8 border-blue-600 rounded-[5rem]"
               alt="profile picture"
               priority
               quality={100}
