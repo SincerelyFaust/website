@@ -166,8 +166,8 @@ const About = () => {
             </svg>
             <p className="text-sm">Top tracks</p>
           </div>
-          {isTopTracksHovered ? <Tracks /> : null}
         </div>
+        {isTopTracksHovered ? <Tracks /> : null}
         {isNowPlayingHovered ? <NowPlaying /> : null}
         <p
           className={
