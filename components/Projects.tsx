@@ -267,6 +267,12 @@ const Projects = () => {
               <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
                 Rust
               </p>
+              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
+                React + Vite
+              </p>
+              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
+                React Native
+              </p>
             </div>
             <p className="text-xl font-light">
               An application for sending webhooks to Discord.
