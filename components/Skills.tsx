@@ -133,15 +133,6 @@ const Skills = () => {
                   : "text-xl text-left font-light"
               }
             >
-              Adobe Illustrator
-            </p>
-            <p
-              className={
-                !isWindowSizeSmall
-                  ? "text-2xl text-left font-light"
-                  : "text-xl text-left font-light"
-              }
-            >
               Figma
             </p>
           </div>
@@ -218,6 +209,15 @@ const Skills = () => {
               }
             >
               Next.js
+            </p>
+            <p
+              className={
+                !isWindowSizeSmall
+                  ? "text-2xl text-left font-light"
+                  : "text-xl text-left font-light"
+              }
+            >
+              Tauri
             </p>
           </div>
           <div
