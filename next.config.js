@@ -8,6 +8,16 @@ const nextConfig = {
       { loader: "@next/font/google", options: { subsets: ["latin"] } },
     ],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.scdn.co",
+        port: "",
+        pathname: "/image/**",
+      },
+    ],
+  },
   async redirects() {
     return [
       {
@@ -32,7 +42,8 @@ const nextConfig = {
       },
       {
         source: "/cdw",
-        destination: "https://github.com/SincerelyFaust/crowdin-discord-webhook",
+        destination:
+          "https://github.com/SincerelyFaust/crowdin-discord-webhook",
         permanent: true,
       },
     ];
