@@ -2,8 +2,12 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
+import { Inter } from "@next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
-function Portfolio({ Component, pageProps }: AppProps) {
+const inter = Inter();
+
+function Website({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -14,10 +18,13 @@ function Portfolio({ Component, pageProps }: AppProps) {
         defaultTheme="system"
         attribute="class"
       >
-        <Component {...pageProps} />
+        <main className={inter.className}>
+          <Component {...pageProps} />
+          <Analytics />
+        </main>
       </ThemeProvider>
     </>
   );
 }
 
-export default Portfolio;
+export default Website;

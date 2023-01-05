@@ -1,16 +1,27 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
-import { siteConfig } from "../config";
 
-export default class PortfolioDocument extends Document {
+export default class WebsiteDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          <meta name="description" content={siteConfig.description} />
-          <meta name="og:description" content={siteConfig.description} />
-          <meta name="keywords" content={siteConfig.keywords} />
-          <meta property="og:image" content={siteConfig.embedImageLink} />
-          <meta property="og:site_name" content={siteConfig.title} />
+          <meta
+            name="description"
+            content="Graphic/motion designer & software developer"
+          />
+          <meta
+            name="og:description"
+            content="Graphic/motion designer & software developer"
+          />
+          <meta
+            name="keywords"
+            content="portfolio, marin heđeš, faust, personal website, sincerelyfaust, founder, developer, graphic designer, motion designer, web developer"
+          />
+          <meta
+            property="og:image"
+            content="https://avatars.githubusercontent.com/u/44751736?v=4"
+          />
+          <meta property="og:site_name" content="Marin Heđeš" />
           <link
             rel="icon"
             type="image/png"
@@ -18,7 +29,7 @@ export default class PortfolioDocument extends Document {
           />
           <meta charSet="UTF-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <link rel="canonical" href={siteConfig.canonicalLink} />
+          <link rel="canonical" href="https://www.marinhedes.com" />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -43,7 +54,7 @@ export default class PortfolioDocument extends Document {
             name="apple-mobile-web-app-status-bar-style"
             content="#2563EB"
           />
-          <meta name="apple-mobile-web-app-title" content={siteConfig.title} />
+          <meta name="apple-mobile-web-app-title" content="Marin Heđeš" />
           <meta
             name="msapplication-TileImage"
             content="/images/favicon/favicon.ico"
