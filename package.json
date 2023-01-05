@@ -1,15 +1,7 @@
 {
-  "name": "portfolio",
+  "name": "website",
   "author": "Marin Heđeš",
-  "version": "1.0.0",
-  "description": "A modern portfolio template built with Next.js and Tailwind",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SincerelyFaust/portfolio"
-  },
-  "bugs": {
-    "url": "https://github.com/SincerelyFaust/portfolio/issues"
-  },
+  "description": "Personal website",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -22,8 +14,6 @@
   "dependencies": {
     "@next/font": "^13.0.3",
     "@vercel/analytics": "^0.1.5",
-    "city-timezones": "^1.2.1",
-    "country-list": "^2.2.0",
     "dayjs": "^1.11.6",
     "framer-motion": "^7.6.6",
     "next": "^13.0.3",
@@ -32,12 +22,11 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/country-list": "^2.1.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.42.1",
-    "@typescript-eslint/parser": "^5.42.1",
+    "@types/react-dom": "18.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.27.0",
     "eslint-config-next": "^13.0.3",

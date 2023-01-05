@@ -5,12 +5,9 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+const inter = Inter();
 
-function Portfolio({ Component, pageProps }: AppProps) {
+function Website({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -21,7 +18,7 @@ function Portfolio({ Component, pageProps }: AppProps) {
         defaultTheme="system"
         attribute="class"
       >
-        <main className={`${inter.variable} font-sans`}>
+        <main className={inter.className}>
           <Component {...pageProps} />
           <Analytics />
         </main>
@@ -30,4 +27,4 @@ function Portfolio({ Component, pageProps }: AppProps) {
   );
 }
 
-export default Portfolio;
+export default Website;

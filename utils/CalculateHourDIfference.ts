@@ -1,13 +1,15 @@
 import dayjs from "dayjs";
 import { getTime } from "./GetTime";
+import customParseFormat from "dayjs/plugin/customParseFormat";
 
 export function calculateHourDifference() {
-  const clientTime = dayjs();
-  const localTime = dayjs(getTime());
-  const timeDiff = localTime.diff(clientTime, "hour");
+  dayjs.extend(customParseFormat);
+  const clientTime = dayjs(dayjs(), "DD/MM/YYYY HH:mm", "gb");
+  const localTime = dayjs(getTime(), "DD/MM/YYYY HH:mm", "gb");
+  const timeDiff = clientTime.diff(localTime, "hour");
 
   if (timeDiff < 0) {
-    return `(${timeDiff} hours behind you)`;
+    return `(${timeDiff.toString().replace("-", "")} hours behind you)`;
   } else if (timeDiff === 0) {
     return "(Same time as you)";
   }
