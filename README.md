@@ -60,6 +60,6 @@ In a browser, load the page [localhost:3000](http://localhost:3000) and you shou
 
 ## License
 
-Copyright @ 2022 - [Marin Heđeš](https://github.com/sincerelyfaust)
+Copyright @ 2023 - [Marin Heđeš](https://github.com/sincerelyfaust)
 
 This project is licensed under the [MIT license](LICENSE).
