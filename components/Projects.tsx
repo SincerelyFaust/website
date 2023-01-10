@@ -278,6 +278,35 @@ const Projects = () => {
               An application for sending webhooks to Discord.
             </p>
           </div>
+          <div
+            className={
+              !isWindowSizeSmall
+                ? "text-left flex flex-col gap-x-10 gap-y-5 w-96"
+                : "text-left flex flex-col gap-y-3"
+            }
+          >
+            <Link
+              href="https://github.com/SincerelyFaust/crowdin-discord-webhook"
+              className={
+                !isWindowSizeSmall
+                  ? "text-3xl font-bold hover:underline"
+                  : "text-2xl font-bold hover:underline"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CDW ↗
+            </Link>
+            <div className="flex flex-row flex-wrap gap-4">
+              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
+                TypeScript
+              </p>
+            </div>
+            <p className="text-xl font-light">
+              CDW is a Cloudflare worker for forwarding Crowdin events to
+              Discord.
+            </p>
+          </div>
         </div>
       </div>
     </div>
