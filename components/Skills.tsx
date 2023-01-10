@@ -219,6 +219,15 @@ const Skills = () => {
             >
               Tauri
             </p>
+            <p
+              className={
+                !isWindowSizeSmall
+                  ? "text-2xl text-left font-light"
+                  : "text-xl text-left font-light"
+              }
+            >
+              React Native
+            </p>
           </div>
           <div
             className={
