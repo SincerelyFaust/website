@@ -99,17 +99,19 @@ const Intro = () => {
                 </span>
               </p>
             </div>
-            <div
+            <Link
+              href={"#hire"}
               className={
                 !isWindowSizeSmall
-                  ? "h-10 w-fit rounded-full flex items-center justify-center text-center dark:bg-slate-800 bg-slate-200 px-4"
-                  : "h-fit w-fit rounded-full flex items-center justify-center text-center dark:bg-slate-800 bg-slate-200 px-4 py-2"
+                  ? "h-10 w-fit rounded-full flex items-center justify-center text-center hover:dark:bg-slate-800 hover:bg-slate-200 outline-4 -outline-offset-2 outline-slate-200 dark:outline-slate-800 outline px-4 cursor-pointer"
+                  : "h-fit w-fit rounded-full flex items-center justify-center text-center hover:dark:bg-slate-800 hover:bg-slate-200 outline-4 -outline-offset-2 outline-slate-200 dark:outline-slate-800 outline cursor-pointer px-4 py-2"
               }
             >
               <p className="text-sm">
-                <span className="align-middle mr-2">🏢</span>Available for hire
+                <span className="align-middle mr-2">🏢</span>Let&apos;s work
+                (contractor, full/part-time, OSS etc.)
               </p>
-            </div>
+            </Link>
           </div>
           <div className="flex flex-row gap-5">
             <Link
