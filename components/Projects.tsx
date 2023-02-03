@@ -345,6 +345,50 @@ const Projects = () => {
               and with ideas in my head.
             </p>
           </div>
+          <div
+            className={
+              !isWindowSizeSmall
+                ? "text-left flex flex-col gap-x-10 gap-y-5 w-96"
+                : "text-left flex flex-col gap-y-3"
+            }
+          >
+            <Link
+              href="https://gith.app"
+              className={
+                !isWindowSizeSmall
+                  ? "text-3xl font-bold hover:underline"
+                  : "text-2xl font-bold hover:underline"
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Gith ↗
+            </Link>
+            <div className="flex flex-row flex-wrap gap-4">
+              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
+                TypeScript
+              </p>
+              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
+                Rust
+              </p>
+              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
+                Tauri + React + Vite
+              </p>
+              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
+                Next.js
+              </p>
+              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
+                Radix UI
+              </p>
+              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
+                Stitches
+              </p>
+            </div>
+            <p className="text-xl font-light">
+              A modern and intuitive GUI client for Git powered by latest and
+              greatest technologies.
+            </p>
+          </div>
         </div>
       </div>
     </div>
