@@ -8,7 +8,7 @@ import Intro from "../components/Intro";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import useMediaQuery from "../utils/hooks/useMediaQuery";
-import Hire from "../components/Hire";
+import LetsWork from "../components/LetsWork";
 
 const variantRight: Variants = {
   visible: {
@@ -141,7 +141,7 @@ const Index: NextPage = () => {
                 : { once: true, amount: 0.1 }
             }
           >
-            <Hire />
+            <LetsWork />
           </motion.div>
           <motion.div
             variants={!isWindowSizeSmall ? footerVariant : footerVariantMobile}

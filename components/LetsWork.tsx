@@ -1,6 +1,6 @@
 import useMediaQuery from "../utils/hooks/useMediaQuery";
 
-const Hire = () => {
+const LetsWork = () => {
   const isWindowSizeSmall = useMediaQuery("(max-width: 1075px)");
 
   return (
@@ -19,7 +19,7 @@ const Hire = () => {
               : "text-5xl font-bold text-blue-600 text-center"
           }
         >
-          👨‍💼 Hire
+          👨‍💼 Let&apos;s work
         </p>
         <p
           className={
@@ -62,4 +62,4 @@ const Hire = () => {
   );
 };
 
-export default Hire;
+export default LetsWork;
