@@ -131,7 +131,7 @@ const Index: NextPage = () => {
             <Experience />
           </motion.div>
           <motion.div
-            id="hire"
+            id="letswork"
             variants={!isWindowSizeSmall ? variantRight : variantRightMobile}
             initial="hidden"
             whileInView="visible"
