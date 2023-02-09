@@ -44,6 +44,7 @@ const LetsWork = () => {
           <div className="flex flex-col gap-1">
             <p>- Designing logotypes and other visual content</p>
             <p>- Developing websites and web applications</p>
+            <p>- Developing e-commerce websites (webshops)</p>
             <p>- Developing mobile and desktop applications</p>
           </div>
         </div>
