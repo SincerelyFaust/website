@@ -315,44 +315,6 @@ const Projects = () => {
             }
           >
             <Link
-              href="https://github.com/SincerelyFaust/dahliaos-alt-website"
-              className={
-                !isWindowSizeSmall
-                  ? "text-3xl font-bold hover:underline"
-                  : "text-2xl font-bold hover:underline"
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              dahliaOS Alt Website ↗
-            </Link>
-            <div className="flex flex-row flex-wrap gap-4">
-              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
-                TypeScript
-              </p>
-              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
-                Next.js
-              </p>
-              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
-                Styled Components
-              </p>
-              <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
-                React Three Fiber (Three.js)
-              </p>
-            </div>
-            <p className="text-xl font-light">
-              An alternative website made for dahliaOS because I was/am bored
-              and with ideas in my head.
-            </p>
-          </div>
-          <div
-            className={
-              !isWindowSizeSmall
-                ? "text-left flex flex-col gap-x-10 gap-y-5 w-96"
-                : "text-left flex flex-col gap-y-3"
-            }
-          >
-            <Link
               href="https://gith.app"
               className={
                 !isWindowSizeSmall
