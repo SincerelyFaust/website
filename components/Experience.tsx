@@ -165,6 +165,62 @@ const Experience = () => {
               </p>
             </div>
           </li>
+          <li
+            className={
+              !isWindowSizeSmall
+                ? "relative mb-0 w-4/12 xl:w-full"
+                : "relative mb-0 w-full"
+            }
+          >
+            <div className="flex items-center">
+              <div className="flex z-10 justify-center items-center w-8 h-8 bg-blue-600 rounded-full ring-[#f3f3f3] ring-8 dark:ring-[#0c0c0c] shrink-0">
+                🟢
+              </div>
+              <div className="flex w-full bg-gray-300 h-0.5 dark:bg-gray-600"></div>
+            </div>
+            <div className="mt-3 pr-8 flex flex-col gap-y-3">
+              <Link
+                href="https://gith.app"
+                className={
+                  !isWindowSizeSmall
+                    ? "text-3xl font-bold hover:underline"
+                    : "text-2xl font-bold hover:underline"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Gith.app ↗
+              </Link>
+              <p
+                className={
+                  !isWindowSizeSmall
+                    ? "font-light text-2xl text-gray-400"
+                    : "font-light text-xl text-gray-400"
+                }
+              >
+                {getDate("02/2023", "")} ({calculateDuration("02/2023", "")})
+              </p>
+              <p
+                className={
+                  !isWindowSizeSmall
+                    ? "text-2xl font-medium"
+                    : "text-xl font-medium"
+                }
+              >
+                Founder
+              </p>
+              <p
+                className={
+                  !isWindowSizeSmall
+                    ? "text-lg font-light"
+                    : "text-base font-light"
+                }
+              >
+                Gith is a cross-platform Git GUI client I founded in February of
+                2023.
+              </p>
+            </div>
+          </li>
         </ol>
       </div>
     </div>
