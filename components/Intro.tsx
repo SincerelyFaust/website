@@ -103,8 +103,8 @@ const Intro = () => {
               href={"#letswork"}
               className={
                 !isWindowSizeSmall
-                  ? "h-10 w-fit rounded-full flex items-center justify-center text-center hover:dark:bg-slate-800 hover:bg-slate-200 outline-4 -outline-offset-2 outline-slate-200 dark:outline-slate-800 outline px-4 cursor-pointer"
-                  : "h-fit w-fit rounded-full flex items-center justify-center text-center hover:dark:bg-slate-800 hover:bg-slate-200 outline-4 -outline-offset-2 outline-slate-200 dark:outline-slate-800 outline cursor-pointer px-4 py-2"
+                  ? "h-10 w-fit rounded-full flex bg-transparent items-center justify-center text-center hover:dark:bg-slate-800 hover:bg-slate-200 outline-4 -outline-offset-2 outline-slate-200 dark:outline-slate-800 outline px-4 cursor-pointer"
+                  : "h-fit w-fit rounded-full flex bg-transparent items-center justify-center text-center hover:dark:bg-slate-800 hover:bg-slate-200 outline-4 -outline-offset-2 outline-slate-200 dark:outline-slate-800 outline cursor-pointer px-4 py-2"
               }
             >
               <p className="text-sm">
