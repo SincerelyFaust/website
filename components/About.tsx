@@ -131,6 +131,17 @@ const About = () => {
                 Horror
               </p>
             </div>
+            <div
+              className={
+                !isWindowSizeSmall
+                  ? "w-fit h-fit bg-slate-300 dark:bg-slate-600 px-2 py-0.5 rounded-full"
+                  : "w-fit h-fit flex items-center bg-slate-300 dark:bg-slate-600 px-2 py-1 rounded-full"
+              }
+            >
+              <p className={!isWindowSizeSmall ? "text-sm" : "text-xs"}>
+                Neo-western
+              </p>
+            </div>
           </div>
         </div>
         <p
