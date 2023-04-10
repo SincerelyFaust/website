@@ -58,7 +58,8 @@ const Experience = () => {
                     : "font-light text-xl text-gray-400"
                 }
               >
-                {getDate("01/2020", "04/2023")} ({calculateDuration("01/2020", "04/2023")})
+                {getDate("01/2020", "04/2023")} (
+                {calculateDuration("01/2020", "04/2023")})
               </p>
               <p
                 className={
