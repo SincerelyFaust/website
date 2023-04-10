@@ -34,7 +34,7 @@ const Experience = () => {
           >
             <div className="flex items-center">
               <div className="flex z-10 justify-center items-center w-8 h-8 bg-blue-600 rounded-full ring-[#f3f3f3] ring-8 dark:ring-[#0c0c0c] shrink-0">
-                🟢
+                🔴
               </div>
               <div className="flex w-full bg-gray-300 h-0.5 dark:bg-gray-600"></div>
             </div>
@@ -58,7 +58,7 @@ const Experience = () => {
                     : "font-light text-xl text-gray-400"
                 }
               >
-                {getDate("01/2020", "")} ({calculateDuration("01/2020", "")})
+                {getDate("01/2020", "04/2023")} ({calculateDuration("01/2020", "04/2023")})
               </p>
               <p
                 className={
