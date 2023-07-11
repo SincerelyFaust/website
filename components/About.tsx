@@ -150,18 +150,18 @@ const About = () => {
           }
         >
           My name is Marin Heđeš, I&apos;m a {calculateAge("23/02/2001")} year
-          old self-taught graphic designer and a developer based in 🇭🇷
-          Slavonski Brod, Croatia. I love learning and gathering new experiences
-          which is what drives me to try something new every once in a while.
-          Hate studying. Can&apos;t live without music. Aged 15, decided to skip
-          on college and teach myself design and programming. Got into open
-          source back in 2020, started learning new skills and getting
-          experience in various fields while building projects with great people
-          and now I&apos;m looking forward to where it&apos;ll take me next. I
-          specialize in graphic/motion design (branding, UI/UX, web design,
-          photoshop, promo), building brands, marketing/advertising,
-          project/product/community management, public relations,
-          desktop/mobile/web app development and web development.
+          old self-taught graphic designer and a developer based in 🇭🇷 Slavonski
+          Brod, Croatia. I love learning and gathering new experiences which is
+          what drives me to try something new every once in a while. Hate
+          studying. Can&apos;t live without music. Aged 15, decided to skip on
+          college and teach myself design and programming. Got into open source
+          back in 2020, started learning new skills and getting experience in
+          various fields while building projects with great people and now
+          I&apos;m looking forward to where it&apos;ll take me next. I
+          specialize in graphic design (branding, UI/UX, web design, photoshop,
+          promo), building brands, marketing/advertising, project/product
+          management, public relations, desktop/mobile/web app development and
+          web development.
         </p>
       </div>
     </div>
