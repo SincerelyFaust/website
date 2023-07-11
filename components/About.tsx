@@ -150,7 +150,7 @@ const About = () => {
           }
         >
           My name is Marin Heđeš, I&apos;m a {calculateAge("23/02/2001")} year
-          old self-taught graphic/motion designer and a developer based in 🇭🇷
+          old self-taught graphic designer and a developer based in 🇭🇷
           Slavonski Brod, Croatia. I love learning and gathering new experiences
           which is what drives me to try something new every once in a while.
           Hate studying. Can&apos;t live without music. Aged 15, decided to skip
