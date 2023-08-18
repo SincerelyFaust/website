@@ -1,4 +1,4 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   mode: "jit",
@@ -10,7 +10,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+        fontFamily: {
+          primary: ["var(--font-inter)", ...fontFamily.sans],
+          serif: ["var(--lora-inter)", ...fontFamily.serif],
+        },
       },
       screens: {
         "2xl": { max: "1620px" },
