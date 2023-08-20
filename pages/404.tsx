@@ -1,16 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 const Error404: NextPage = () => {
-  const router = useRouter();
-
-  const handleClick = (e: any) => {
-    e.preventDefault();
-    router.push("/");
-  };
-
   return (
     <>
       <Head>
@@ -23,12 +16,12 @@ const Error404: NextPage = () => {
           <p className="text-4xl font-normal text-slate-600 sm:text-2xl">
             Or maybe this page was never even planned.
           </p>
-          <button
+          <Link
+            href="/"
             className="bg-blue-600 w-fit h-fit px-4 py-2 rounded-full text-white"
-            onClick={e => handleClick(e)}
           >
             🏠 Either way, click here.
-          </button>
+          </Link>
         </div>
         <div>
           <Footer />
