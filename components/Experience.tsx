@@ -23,7 +23,7 @@ const Experience = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              dahliaOS ↗
+              dahliaOS
             </Link>
             <p className="lg:text-xl text-2xl font-light text-gray-400">
               {getDate("01/2020", "04/2023")} (
@@ -63,7 +63,7 @@ const Experience = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              BlissLabs ↗
+              BlissLabs
             </Link>
             <p className="lg:text-xl text-2xl font-light text-gray-400">
               {getDate("02/2021", "06/2021")} (
@@ -104,7 +104,7 @@ const Experience = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Gith.app ↗
+              Gith.app
             </Link>
             <p className="lg:text-xl text-2xl font-light text-gray-400">
               {getDate("02/2023", "")} ({calculateDuration("02/2023", "")})

@@ -14,7 +14,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            dahliaOS App Store ↗
+            dahliaOS App Store
           </Link>
           <div className="flex flex-row flex-wrap gap-4 lg:items-center max-w-xs">
             <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
@@ -35,7 +35,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            dahliaOS Welcome ↗
+            dahliaOS Welcome
           </Link>
           <div className="flex flex-row flex-wrap gap-4 lg:items-center max-w-xs">
             <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
@@ -56,7 +56,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            dahliaOS Website ↗
+            dahliaOS Website
           </Link>
           <div className="flex flex-row flex-wrap gap-4 lg:items-center max-w-xs">
             <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
@@ -81,7 +81,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            The Hateful Society ↗
+            The Hateful Society
           </Link>
           <div className="flex flex-row flex-wrap gap-4 lg:items-center max-w-xs">
             <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
@@ -108,7 +108,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Personal website ↗
+            Personal website
           </Link>
           <div className="flex flex-row flex-wrap gap-4 lg:items-center max-w-xs">
             <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
@@ -132,7 +132,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            FSK Satellite website ↗
+            FSK Satellite website
           </Link>
           <div className="flex flex-row flex-wrap gap-4 lg:items-center max-w-xs">
             <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
@@ -159,7 +159,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Cordhook ↗
+            Cordhook
           </Link>
           <div className="flex flex-row flex-wrap gap-4 lg:items-center max-w-xs">
             <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
@@ -195,7 +195,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            CDW ↗
+            CDW
           </Link>
           <div className="flex flex-row flex-wrap gap-4 lg:items-center max-w-xs">
             <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
@@ -216,7 +216,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Mad Science website ↗
+            Mad Science website
           </Link>
           <div className="flex flex-row flex-wrap gap-4 lg:items-center max-w-xs">
             <p className="px-3 py-1 text-center bg-blue-600 font-normal text-white text-xs rounded-xl">
