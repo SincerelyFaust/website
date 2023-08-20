@@ -1,31 +1,11 @@
-import useMediaQuery from "../utils/hooks/useMediaQuery";
-
 const LetsWork = () => {
-  const isWindowSizeSmall = useMediaQuery("(max-width: 1075px)");
-
   return (
-    <div>
-      <div
-        className={
-          !isWindowSizeSmall
-            ? "flex flex-col px-48 w-screen h-fit gap-10"
-            : "flex flex-col px-20 w-screen h-fit gap-10"
-        }
-      >
-        <p
-          className={
-            !isWindowSizeSmall
-              ? "text-9xl font-bold text-blue-600"
-              : "text-5xl font-bold text-blue-600 text-center"
-          }
-        >
-          👨‍💼 Let&apos;s work
-        </p>
-        <p
-          className={
-            !isWindowSizeSmall ? "text-2xl font-light" : "font-light text-sg"
-          }
-        >
+    <div className="flex flex-col px-48 w-screen h-fit items-start justify-end gap-20 lg:justify-center lg:items-center lg:px-20">
+      <p className="text-9xl font-bold text-blue-600 lg:text-5xl">
+        👨‍💼 Let&apos;s work
+      </p>
+      <div className="flex flex-col gap-10">
+        <p className="text-2xl font-light lg:text-base">
           I&apos;m available for all kinds of opportunities, whether it be a
           paid position (full/part-time or as a contractor) or joining forces to
           create paid positions. Also interested in joining FOSS/OSS projects
@@ -34,11 +14,7 @@ const LetsWork = () => {
           gig, below you can find a list of services I provide.
         </p>
         <div className="flex flex-col gap-3">
-          <p
-            className={
-              !isWindowSizeSmall ? "text-2xl font-bold" : "font-bold text-sg"
-            }
-          >
+          <p className="text-2xl font-bold lg:text-base">
             👨‍🔧 Services I offer:
           </p>
           <div className="flex flex-col gap-1">
@@ -48,11 +24,7 @@ const LetsWork = () => {
             <p>- Developing mobile and desktop applications</p>
           </div>
         </div>
-        <p
-          className={
-            !isWindowSizeSmall ? "text-2xl font-light" : "font-light text-sg"
-          }
-        >
+        <p className="text-2xl font-light lg:text-base">
           If you have any kind of an opportunity and are looking for someone
           reliable, trustworthy, hard-working, ambitious and a
           do-whatever-it-takes person who is more than excited to learn, adapt

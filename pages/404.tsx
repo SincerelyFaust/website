@@ -18,9 +18,9 @@ const Error404: NextPage = () => {
           </p>
           <Link
             href="/"
-            className="bg-blue-600 w-fit h-fit px-4 py-2 rounded-full text-white"
+            className="bg-blue-600 w-fit px-4 py-2 rounded-full text-white"
           >
-            🏠 Either way, click here.
+            🏠 Home
           </Link>
         </div>
         <div>

@@ -64,6 +64,10 @@ const footerVariantMobile: Variants = {
   hidden: { y: 100, opacity: 0 },
 };
 
+const viewport = (query: boolean) => {
+  return !query ? { once: true, amount: 0.3 } : { once: true, amount: 0.1 };
+};
+
 const Index: NextPage = () => {
   const isWindowSizeSmall = useMediaQuery("(max-width: 1075px)");
 
@@ -74,20 +78,15 @@ const Index: NextPage = () => {
         <meta property="og:title" content="Marin Heđeš" />
       </Head>
       <div className="overflow-hidden">
-        <div>
-          <Intro />
-        </div>
+        <Intro />
+
         <div className="flex flex-col gap-40">
           <motion.div
             id="about"
             variants={!isWindowSizeSmall ? variantRight : variantRightMobile}
             initial="hidden"
             whileInView="visible"
-            viewport={
-              !isWindowSizeSmall
-                ? { once: true, amount: 0.3 }
-                : { once: true, amount: 0.1 }
-            }
+            viewport={viewport(isWindowSizeSmall)}
           >
             <About />
           </motion.div>
@@ -96,11 +95,7 @@ const Index: NextPage = () => {
             variants={!isWindowSizeSmall ? variantLeft : variantLeftMobile}
             initial="hidden"
             whileInView="visible"
-            viewport={
-              !isWindowSizeSmall
-                ? { once: true, amount: 0.3 }
-                : { once: true, amount: 0.1 }
-            }
+            viewport={viewport(isWindowSizeSmall)}
           >
             <Skills />
           </motion.div>
@@ -109,11 +104,7 @@ const Index: NextPage = () => {
             variants={!isWindowSizeSmall ? variantRight : variantRightMobile}
             initial="hidden"
             whileInView="visible"
-            viewport={
-              !isWindowSizeSmall
-                ? { once: true, amount: 0.3 }
-                : { once: true, amount: 0.1 }
-            }
+            viewport={viewport(isWindowSizeSmall)}
           >
             <Projects />
           </motion.div>
@@ -122,11 +113,7 @@ const Index: NextPage = () => {
             variants={!isWindowSizeSmall ? variantLeft : variantLeftMobile}
             initial="hidden"
             whileInView="visible"
-            viewport={
-              !isWindowSizeSmall
-                ? { once: true, amount: 0.3 }
-                : { once: true, amount: 0.1 }
-            }
+            viewport={viewport(isWindowSizeSmall)}
           >
             <Experience />
           </motion.div>
@@ -135,11 +122,7 @@ const Index: NextPage = () => {
             variants={!isWindowSizeSmall ? variantRight : variantRightMobile}
             initial="hidden"
             whileInView="visible"
-            viewport={
-              !isWindowSizeSmall
-                ? { once: true, amount: 0.3 }
-                : { once: true, amount: 0.1 }
-            }
+            viewport={viewport(isWindowSizeSmall)}
           >
             <LetsWork />
           </motion.div>
@@ -147,11 +130,7 @@ const Index: NextPage = () => {
             variants={!isWindowSizeSmall ? footerVariant : footerVariantMobile}
             initial="hidden"
             whileInView="visible"
-            viewport={
-              !isWindowSizeSmall
-                ? { once: true, amount: 0.3 }
-                : { once: true, amount: 0.1 }
-            }
+            viewport={viewport(isWindowSizeSmall)}
           >
             <Footer />
           </motion.div>

@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-function Website({ Component, pageProps }: AppProps) {
+const Website = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -25,6 +25,6 @@ function Website({ Component, pageProps }: AppProps) {
       </ThemeProvider>
     </>
   );
-}
+};
 
 export default Website;
