@@ -1,7 +1,7 @@
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
   darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -10,10 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        fontFamily: {
-          primary: ["var(--font-inter)", ...fontFamily.sans],
-          serif: ["var(--lora-inter)", ...fontFamily.serif],
-        },
+        primary: ["var(--font-inter)", ...fontFamily.sans],
+        serif: ["var(--lora-inter)", ...fontFamily.serif],
       },
       screens: {
         "2xl": { max: "1620px" },

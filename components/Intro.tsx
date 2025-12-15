@@ -16,7 +16,7 @@ const Intro = () => {
     <div className="flex flex-row w-screen h-screen px-48 py-16 items-center justify-start gap-x-32 lg:flex-col lg:px-16 lg:gap-y-5 xl:justify-center xl:px-28">
       <Image
         src={profilePicture}
-        className="border-dashed border-8 border-blue-600 rounded-[5rem] lg:rounded-[2rem] max-w-[340px] lg:max-w-[140px]"
+        className="border-dashed border-8 border-blue-600 rounded-[5rem] lg:rounded-4xl max-w-85 lg:max-w-35"
         alt="profile picture"
         priority
         quality={100}
