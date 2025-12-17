@@ -236,8 +236,9 @@ export default function Home() {
   const tzDiff = calculateHourDifferenceToViewer(now);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
-      <div className="window w-full max-w-4xl max-h-[80vh] flex flex-col">
+    <div className="min-h-[100svh] flex justify-center items-start p-3 sm:p-6 overflow-auto">
+      {/* Use a viewport-based HEIGHT so the title bar + welcome never get clipped on small devices */}
+      <div className="window w-full max-w-3xl h-[94svh] sm:h-[90svh] flex flex-col">
         <div className="title-bar">
           <div className="title-bar-text">{PROFILE.name}</div>
           <div className="title-bar-controls">
@@ -247,10 +248,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="window-body flex flex-col gap-4 overflow-hidden flex-1">
-          <div className="flex flex-col gap-4 lg:flex-row overflow-hidden flex-1">
+        {/* Fixed layout zones: body grows, status stays visible */}
+        <div className="window-body flex flex-col gap-4 flex-1 min-h-0 overflow-hidden">
+          {/* MOBILE: this whole area scrolls (so Welcome never disappears).
+              DESKTOP: internal panels scroll. */}
+          <div className="flex flex-col gap-4 flex-1 min-h-0 overflow-auto lg:overflow-hidden lg:flex-row">
             {/* LEFT */}
-            <aside className="w-full lg:w-70 flex flex-col gap-4 overflow-hidden">
+            <aside className="w-full lg:w-[280px] flex flex-col gap-4 min-h-0">
               <fieldset>
                 <legend>Welcome</legend>
 
@@ -298,7 +302,8 @@ export default function Home() {
                 </div>
               </fieldset>
 
-              <div className="sunken-panel p-3 overflow-auto">
+              {/* Desktop: this fills remaining height and scrolls with XP scrollbar */}
+              <div className="sunken-panel p-3 lg:flex-1 lg:min-h-0 lg:overflow-auto">
                 <ul className="tree-view">
                   <li>
                     <button
@@ -353,9 +358,16 @@ export default function Home() {
             </aside>
 
             {/* RIGHT */}
-            <main className="flex-1 min-w-0 overflow-hidden">
-              <section className="tabs h-full flex flex-col overflow-hidden">
-                <menu role="tablist" aria-label="Portfolio tabs">
+            <main className="flex-1 min-w-0 min-h-0 lg:overflow-hidden">
+              {/* XP.css tabs: menu + articles as direct children */}
+              <section className="tabs h-full flex flex-col min-h-0 lg:overflow-hidden">
+                {/* Keep tab bar visible; allow wrapping on tiny screens */}
+                <menu
+                  role="tablist"
+                  aria-label="Portfolio tabs"
+                  className="flex-wrap"
+                  style={{ flexShrink: 0 }}
+                >
                   <button
                     role="tab"
                     aria-selected={tab === "about"}
@@ -400,288 +412,297 @@ export default function Home() {
                   </button>
                 </menu>
 
-                <div className="flex-1 overflow-auto p-2">
-                  {/* ABOUT */}
-                  <article role="tabpanel" hidden={tab !== "about"}>
-                    <fieldset>
-                      <legend>About</legend>
-                      <div className="field-row">
-                        <label style={{ width: 90 }}>Age:</label>
-                        <input readOnly value={`${age}`} />
-                      </div>
+                {/* On mobile we let the OUTER stack scroll; on desktop each tab page scrolls */}
+                <article
+                  role="tabpanel"
+                  hidden={tab !== "about"}
+                  className="p-2 lg:flex-1 lg:min-h-0 lg:overflow-auto"
+                >
+                  <fieldset>
+                    <legend>About</legend>
+                    <div className="field-row">
+                      <label style={{ width: 90 }}>Age:</label>
+                      <input readOnly value={`${age}`} />
+                    </div>
 
-                      <div className="field-row-stacked">
-                        <label>Bio</label>
-                        <textarea
-                          readOnly
-                          rows={10}
-                          value={`My name is ${PROFILE.name}, I'm a ${age} year old self-taught graphic designer and a developer based in ${PROFILE.location}.
+                    <div className="field-row-stacked">
+                      <label>Bio</label>
+                      <textarea
+                        readOnly
+                        rows={10}
+                        value={`My name is ${PROFILE.name}, I'm a ${age} year old self-taught graphic designer and a developer based in ${PROFILE.location}.
 
 I love learning and gathering new experiences which is what drives me to try something new every once in a while. Hate studying. Can't live without music. Aged 15, decided to skip on college and teach myself design and programming.
 
 Got into open source back in 2020, started learning new skills and getting experience in various fields while building projects with great people and now I'm looking forward to where it'll take me next. I specialize in graphic design (branding, UI/UX, web design, photoshop, promo), building brands, marketing/advertising, project/product management, public relations, desktop/mobile/web app development and web development.`}
-                        />
-                      </div>
-                    </fieldset>
-
-                    <fieldset>
-                      <legend>Favorites</legend>
-                      <div className="field-row-stacked">
-                        <label>Music genres</label>
-                        <select disabled defaultValue={FAVORITES.music[0]}>
-                          {FAVORITES.music.map((g) => (
-                            <option key={g}>{g}</option>
-                          ))}
-                        </select>
-                      </div>
-                      <div className="field-row-stacked">
-                        <label>Film genres</label>
-                        <select disabled defaultValue={FAVORITES.films[0]}>
-                          {FAVORITES.films.map((g) => (
-                            <option key={g}>{g}</option>
-                          ))}
-                        </select>
-                      </div>
-                    </fieldset>
-                  </article>
-
-                  {/* SKILLS */}
-                  <article role="tabpanel" hidden={tab !== "skills"}>
-                    <div className="flex flex-col gap-4">
-                      <fieldset>
-                        <legend>Motion design</legend>
-                        <ul className="tree-view">
-                          {SKILLS.motion.map((s) => (
-                            <li key={s}>{s}</li>
-                          ))}
-                        </ul>
-                      </fieldset>
-
-                      <fieldset>
-                        <legend>Graphic design</legend>
-                        <ul className="tree-view">
-                          {SKILLS.graphic.map((s) => (
-                            <li key={s}>{s}</li>
-                          ))}
-                        </ul>
-                      </fieldset>
-
-                      <fieldset>
-                        <legend>Frameworks</legend>
-                        <ul className="tree-view">
-                          {SKILLS.frameworks.map((s) => (
-                            <li key={s}>{s}</li>
-                          ))}
-                        </ul>
-                      </fieldset>
-
-                      <fieldset>
-                        <legend>Languages</legend>
-                        <ul className="tree-view">
-                          {SKILLS.languages.map((s) => (
-                            <li key={s}>{s}</li>
-                          ))}
-                        </ul>
-                      </fieldset>
-
-                      <fieldset>
-                        <legend>Tools</legend>
-                        <ul className="tree-view">
-                          {SKILLS.tools.map((s) => (
-                            <li key={s}>{s}</li>
-                          ))}
-                        </ul>
-                      </fieldset>
+                      />
                     </div>
-                  </article>
+                  </fieldset>
 
-                  {/* PROJECTS */}
-                  <article role="tabpanel" hidden={tab !== "projects"}>
+                  <fieldset>
+                    <legend>Favorites</legend>
+                    <div className="field-row-stacked">
+                      <label>Music genres</label>
+                      <select disabled defaultValue={FAVORITES.music[0]}>
+                        {FAVORITES.music.map((g) => (
+                          <option key={g}>{g}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="field-row-stacked">
+                      <label>Film genres</label>
+                      <select disabled defaultValue={FAVORITES.films[0]}>
+                        {FAVORITES.films.map((g) => (
+                          <option key={g}>{g}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </fieldset>
+                </article>
+
+                <article
+                  role="tabpanel"
+                  hidden={tab !== "skills"}
+                  className="p-2 lg:flex-1 lg:min-h-0 lg:overflow-auto"
+                >
+                  <div className="flex flex-col gap-4">
                     <fieldset>
-                      <legend>Projects</legend>
-                      <div className="sunken-panel p-3">
-                        <ul className="tree-view">
-                          {PROJECTS.map((p) => (
-                            <li key={p.name} style={{ marginBottom: 8 }}>
-                              <div
-                                className="field-row"
-                                style={{
-                                  justifyContent: "space-between",
-                                  gap: 12,
-                                }}
-                              >
-                                <a
-                                  href={p.href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  <strong>{p.name}</strong>
-                                </a>
-                                <a
-                                  href={p.href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  <button>Open</button>
-                                </a>
-                              </div>
-
-                              <div
-                                className="field-row"
-                                style={{
-                                  flexWrap: "wrap",
-                                  gap: 6,
-                                  marginTop: 6,
-                                }}
-                              >
-                                {p.tags.map((t) => (
-                                  <span
-                                    key={`${p.name}-${t}`}
-                                    className="status-bar"
-                                  >
-                                    <p className="status-bar-field">{t}</p>
-                                  </span>
-                                ))}
-                              </div>
-
-                              <div
-                                className="field-row-stacked"
-                                style={{ marginTop: 6 }}
-                              >
-                                <textarea readOnly rows={3} value={p.desc} />
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      <legend>Motion design</legend>
+                      <ul className="tree-view">
+                        {SKILLS.motion.map((s) => (
+                          <li key={s}>{s}</li>
+                        ))}
+                      </ul>
                     </fieldset>
-                  </article>
+                    <fieldset>
+                      <legend>Graphic design</legend>
+                      <ul className="tree-view">
+                        {SKILLS.graphic.map((s) => (
+                          <li key={s}>{s}</li>
+                        ))}
+                      </ul>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Frameworks</legend>
+                      <ul className="tree-view">
+                        {SKILLS.frameworks.map((s) => (
+                          <li key={s}>{s}</li>
+                        ))}
+                      </ul>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Languages</legend>
+                      <ul className="tree-view">
+                        {SKILLS.languages.map((s) => (
+                          <li key={s}>{s}</li>
+                        ))}
+                      </ul>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Tools</legend>
+                      <ul className="tree-view">
+                        {SKILLS.tools.map((s) => (
+                          <li key={s}>{s}</li>
+                        ))}
+                      </ul>
+                    </fieldset>
+                  </div>
+                </article>
 
-                  {/* EXPERIENCE */}
-                  <article role="tabpanel" hidden={tab !== "experience"}>
-                    <div className="flex flex-col gap-4">
-                      {EXPERIENCE.map((e) => (
-                        <fieldset key={e.name}>
-                          <legend>
-                            <a
-                              href={e.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                <article
+                  role="tabpanel"
+                  hidden={tab !== "projects"}
+                  className="p-2 lg:flex-1 lg:min-h-0 lg:overflow-auto"
+                >
+                  <fieldset>
+                    <legend>Projects</legend>
+                    <div className="sunken-panel p-3">
+                      <ul className="tree-view">
+                        {PROJECTS.map((p) => (
+                          <li key={p.name} style={{ marginBottom: 8 }}>
+                            <div
+                              className="field-row"
+                              style={{
+                                justifyContent: "space-between",
+                                gap: 12,
+                              }}
                             >
-                              {e.name}
-                            </a>
-                          </legend>
-                          <div className="field-row">
-                            <label style={{ width: 120 }}>Dates:</label>
-                            <input
-                              readOnly
-                              value={`${getDateRange(
-                                e.start,
-                                e.end
-                              )} (${calculateDuration(e.start, e.end)})`}
-                            />
-                          </div>
-                          <div className="field-row">
-                            <label style={{ width: 120 }}>Role:</label>
-                            <input readOnly value={e.role} />
-                          </div>
-                          <div className="field-row-stacked">
-                            <label>Summary</label>
-                            <textarea readOnly rows={6} value={e.summary} />
-                          </div>
-                        </fieldset>
-                      ))}
+                              <a
+                                href={p.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <strong>{p.name}</strong>
+                              </a>
+                              <a
+                                href={p.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <button>Open</button>
+                              </a>
+                            </div>
+
+                            <div
+                              className="field-row"
+                              style={{ flexWrap: "wrap", gap: 6, marginTop: 6 }}
+                            >
+                              {p.tags.map((t) => (
+                                <span
+                                  key={`${p.name}-${t}`}
+                                  className="status-bar"
+                                >
+                                  <p className="status-bar-field">{t}</p>
+                                </span>
+                              ))}
+                            </div>
+
+                            <div
+                              className="field-row-stacked"
+                              style={{ marginTop: 6 }}
+                            >
+                              <textarea readOnly rows={3} value={p.desc} />
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </article>
+                  </fieldset>
+                </article>
 
-                  {/* WORK */}
-                  <article role="tabpanel" hidden={tab !== "work"}>
-                    <fieldset>
-                      <legend>Let&apos;s work</legend>
-                      <div className="field-row-stacked">
-                        <label>Availability</label>
-                        <textarea readOnly rows={6} value={WORK.availability} />
-                      </div>
-
-                      <fieldset>
-                        <legend>Services I offer</legend>
-                        <ul className="tree-view">
-                          {WORK.services.map((s) => (
-                            <li key={s}>{s}</li>
-                          ))}
-                        </ul>
+                <article
+                  role="tabpanel"
+                  hidden={tab !== "experience"}
+                  className="p-2 lg:flex-1 lg:min-h-0 lg:overflow-auto"
+                >
+                  <div className="flex flex-col gap-4">
+                    {EXPERIENCE.map((e) => (
+                      <fieldset key={e.name}>
+                        <legend>
+                          <a
+                            href={e.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {e.name}
+                          </a>
+                        </legend>
+                        <div className="field-row">
+                          <label style={{ width: 120 }}>Dates:</label>
+                          <input
+                            readOnly
+                            value={`${getDateRange(
+                              e.start,
+                              e.end
+                            )} (${calculateDuration(e.start, e.end)})`}
+                          />
+                        </div>
+                        <div className="field-row">
+                          <label style={{ width: 120 }}>Role:</label>
+                          <input readOnly value={e.role} />
+                        </div>
+                        <div className="field-row-stacked">
+                          <label>Summary</label>
+                          <textarea readOnly rows={6} value={e.summary} />
+                        </div>
                       </fieldset>
+                    ))}
+                  </div>
+                </article>
 
-                      <div
-                        className="field-row"
-                        style={{ marginTop: 8, flexWrap: "wrap", gap: 8 }}
-                      >
-                        <a href={`mailto:${PROFILE.email}`}>
-                          <button>Email</button>
-                        </a>
-                        <button onClick={() => setTab("contact")}>
-                          Get in touch
-                        </button>
-                      </div>
-                    </fieldset>
-                  </article>
+                <article
+                  role="tabpanel"
+                  hidden={tab !== "work"}
+                  className="p-2 lg:flex-1 lg:min-h-0 lg:overflow-auto"
+                >
+                  <fieldset>
+                    <legend>Let&apos;s work</legend>
+                    <div className="field-row-stacked">
+                      <label>Availability</label>
+                      <textarea readOnly rows={6} value={WORK.availability} />
+                    </div>
 
-                  {/* CONTACT */}
-                  <article role="tabpanel" hidden={tab !== "contact"}>
                     <fieldset>
-                      <legend>Get in touch</legend>
-
-                      <div
-                        className="field-row"
-                        style={{ flexWrap: "wrap", gap: 8 }}
-                      >
-                        <Link
-                          href={SOCIAL.instagram}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <button>Instagram</button>
-                        </Link>
-                        <Link
-                          href={SOCIAL.twitter}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <button>Twitter</button>
-                        </Link>
-                        <Link
-                          href={SOCIAL.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <button>LinkedIn</button>
-                        </Link>
-                        <Link
-                          href={SOCIAL.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <button>GitHub</button>
-                        </Link>
-                        <a href={`mailto:${PROFILE.email}`}>
-                          <button>Email</button>
-                        </a>
-                      </div>
-
-                      <div className="status-bar" style={{ marginTop: 10 }}>
-                        <p className="status-bar-field">
-                          {PROFILE.footerAppName}
-                        </p>
-                        <p className="status-bar-field">
-                          {now.toLocaleTimeString("en-GB", {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          })}
-                        </p>
-                      </div>
+                      <legend>Services I offer</legend>
+                      <ul className="tree-view">
+                        {WORK.services.map((s) => (
+                          <li key={s}>{s}</li>
+                        ))}
+                      </ul>
                     </fieldset>
-                  </article>
-                </div>
+
+                    <div
+                      className="field-row"
+                      style={{ marginTop: 8, flexWrap: "wrap", gap: 8 }}
+                    >
+                      <a href={`mailto:${PROFILE.email}`}>
+                        <button>Email</button>
+                      </a>
+                      <button onClick={() => setTab("contact")}>
+                        Get in touch
+                      </button>
+                    </div>
+                  </fieldset>
+                </article>
+
+                <article
+                  role="tabpanel"
+                  hidden={tab !== "contact"}
+                  className="p-2 lg:flex-1 lg:min-h-0 lg:overflow-auto"
+                >
+                  <fieldset>
+                    <legend>Get in touch</legend>
+
+                    <div
+                      className="field-row"
+                      style={{ flexWrap: "wrap", gap: 8 }}
+                    >
+                      <Link
+                        href={SOCIAL.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <button>Instagram</button>
+                      </Link>
+                      <Link
+                        href={SOCIAL.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <button>Twitter</button>
+                      </Link>
+                      <Link
+                        href={SOCIAL.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <button>LinkedIn</button>
+                      </Link>
+                      <Link
+                        href={SOCIAL.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <button>GitHub</button>
+                      </Link>
+                      <a href={`mailto:${PROFILE.email}`}>
+                        <button>Email</button>
+                      </a>
+                    </div>
+
+                    <div className="status-bar" style={{ marginTop: 10 }}>
+                      <p className="status-bar-field">
+                        {PROFILE.footerAppName}
+                      </p>
+                      <p className="status-bar-field">
+                        {now.toLocaleTimeString("en-GB", {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </p>
+                    </div>
+                  </fieldset>
+                </article>
               </section>
             </main>
           </div>
