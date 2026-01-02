@@ -78,6 +78,15 @@ function calculateHourDifferenceToViewer(now: Date) {
   return `(${diffHours} hours ahead of you)`;
 }
 
+function ReadonlyField({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="field-row-stacked">
+      <label className="font-bold">{label}</label>
+      <input readOnly value={value} className="font-mono!" />
+    </div>
+  );
+}
+
 export default function Home() {
   const [now, setNow] = useState<Date>(() => new Date());
 
@@ -119,25 +128,17 @@ export default function Home() {
               />
 
               <div className="field-row-stacked" style={{ width: "100%" }}>
-                <label>Name</label>
-                <input readOnly value={PROFILE.name} />
+                <label className="font-bold">Name</label>
+                <input readOnly value={PROFILE.name} className="font-mono!" />
               </div>
             </div>
 
-            <div className="field-row-stacked">
-              <label>Role</label>
-              <input readOnly value={PROFILE.role} />
-            </div>
-
-            <div className="field-row-stacked">
-              <label>Location</label>
-              <input readOnly value={PROFILE.location} />
-            </div>
-
-            <div className="field-row-stacked">
-              <label>Local time ({PROFILE.timezone})</label>
-              <input readOnly value={`${zagrebTime} ${tzDiff}`} />
-            </div>
+            <ReadonlyField label="Role" value={PROFILE.role} />
+            <ReadonlyField label="Location" value={PROFILE.location} />
+            <ReadonlyField
+              label={`Local time (${PROFILE.timezone})`}
+              value={`${zagrebTime} ${tzDiff}`}
+            />
 
             <div className="field-row" style={{ flexWrap: "wrap", gap: 8 }}>
               <Link href="/cv">
@@ -153,16 +154,17 @@ export default function Home() {
           <fieldset>
             <legend>About</legend>
 
-            <div className="field-row">
-              <label style={{ width: 90 }}>Age</label>
-              <input readOnly value={`${age}`} />
+            <div className="field-row-stacked">
+              <label className="font-bold">Age</label>
+              <input readOnly value={`${age}`} className="font-mono!" />
             </div>
 
             <div className="field-row-stacked">
-              <label>What I do</label>
+              <label className="font-bold">What I do</label>
               <textarea
                 readOnly
                 rows={10}
+                className="font-mono!"
                 value={`I’m a front-end and mobile developer focused on building production apps that feel fast, clean, and reliable.
 
 I’m most passionate about software development and developer experience (DX): reducing friction, keeping codebases maintainable, and making delivery predictable. I enjoy setting up solid foundations—shared UI patterns, reusable modules, automation scripts, and CI checks—so teams can move quickly without breaking things.
