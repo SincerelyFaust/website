@@ -146,6 +146,42 @@ export default function Home() {
                 <button>Email</button>
               </a>
             </div>
+
+            <div className="mt-3">
+              <div className="status-bar">
+                <p className="status-bar-field">
+                  Want to see code? Browse my{" "}
+                  <Link
+                    href="/github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    GitHub
+                  </Link>
+                  .
+                </p>
+              </div>
+
+              <div className="status-bar mt-2">
+                <p className="status-bar-field">
+                  Looking for experience & project history? See my{" "}
+                  <Link href="/cv" className="underline">
+                    CV
+                  </Link>{" "}
+                  or{" "}
+                  <Link
+                    href="/linkedin"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    LinkedIn
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
           </fieldset>
 
           <fieldset>
