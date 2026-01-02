@@ -236,7 +236,7 @@ export default function Home() {
   const tzDiff = calculateHourDifferenceToViewer(now);
 
   return (
-    <div className="min-h-[100svh] flex justify-center items-start p-3 sm:p-6 overflow-auto">
+    <div className="min-h-svh flex justify-center items-start p-3 sm:p-6 overflow-auto">
       {/* Use a viewport-based HEIGHT so the title bar + welcome never get clipped on small devices */}
       <div className="window w-full max-w-3xl h-[94svh] sm:h-[90svh] flex flex-col">
         <div className="title-bar">
@@ -254,7 +254,7 @@ export default function Home() {
               DESKTOP: internal panels scroll. */}
           <div className="flex flex-col gap-4 flex-1 min-h-0 overflow-auto lg:overflow-hidden lg:flex-row">
             {/* LEFT */}
-            <aside className="w-full lg:w-[280px] flex flex-col gap-4 min-h-0">
+            <aside className="w-full lg:w-70 flex flex-col gap-4 min-h-0">
               <fieldset>
                 <legend>Welcome</legend>
 
