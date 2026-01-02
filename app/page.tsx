@@ -100,7 +100,7 @@ export default function Home() {
   const tzDiff = calculateHourDifferenceToViewer(now);
 
   return (
-    <div className="min-h-svh flex items-center justify-center p-3 sm:p-6">
+    <div className="min-h-svh flex items-center justify-center p-3 sm:p-6 overflow-auto bg-[url('/images/bg/image.webp')] bg-cover bg-center bg-no-repeat">
       <div className="window w-full max-w-2xl">
         <div className="title-bar">
           <div className="title-bar-text">{PROFILE.name}</div>

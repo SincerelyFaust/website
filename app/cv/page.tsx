@@ -4,7 +4,7 @@ export default function CVPage() {
   const pdfPath = "/cv/cv.pdf";
 
   return (
-    <div className="min-h-svh flex items-center justify-center p-3 sm:p-6 overflow-auto">
+    <div className="min-h-svh flex items-center justify-center p-3 sm:p-6 overflow-auto bg-[url('/images/bg/image.webp')] bg-cover bg-center bg-no-repeat">
       <div className="window w-full max-w-5xl h-[94svh] sm:h-[90svh] flex flex-col">
         <div className="title-bar">
           <div className="title-bar-text">CV</div>
