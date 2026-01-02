@@ -115,10 +115,7 @@ export default function Home() {
           <fieldset>
             <legend>Profile</legend>
 
-            <div
-              className="field-row"
-              style={{ alignItems: "center", gap: 10 }}
-            >
+            <div className="field-row items-center gap-2.5">
               <Image
                 src={PROFILE.avatar}
                 alt="profile picture"
@@ -127,7 +124,7 @@ export default function Home() {
                 priority
               />
 
-              <div className="field-row-stacked" style={{ width: "100%" }}>
+              <div className="field-row-stacked w-full">
                 <label className="font-bold">Name</label>
                 <input readOnly value={PROFILE.name} className="font-mono!" />
               </div>
@@ -140,7 +137,7 @@ export default function Home() {
               value={`${zagrebTime} ${tzDiff}`}
             />
 
-            <div className="field-row" style={{ flexWrap: "wrap", gap: 8 }}>
+            <div className="field-row flex-wrap gap-2">
               <Link href="/cv">
                 <button>View CV</button>
               </Link>
@@ -177,7 +174,7 @@ When I’m building, I care about the details: performance, state management, re
           <fieldset>
             <legend>Links</legend>
 
-            <div className="field-row" style={{ flexWrap: "wrap", gap: 8 }}>
+            <div className="field-row flex-wrap gap-2">
               {SOCIAL.map((s) => (
                 <Link
                   key={s.label}
