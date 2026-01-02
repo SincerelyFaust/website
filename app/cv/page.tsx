@@ -4,7 +4,7 @@ export default function CVPage() {
   const pdfPath = "/cv/cv.pdf";
 
   return (
-    <div className="min-h-svh flex justify-center items-start p-3 sm:p-6 overflow-auto">
+    <div className="min-h-svh flex items-center justify-center p-3 sm:p-6 overflow-auto">
       <div className="window w-full max-w-5xl h-[94svh] sm:h-[90svh] flex flex-col">
         <div className="title-bar">
           <div className="title-bar-text">CV</div>
@@ -16,16 +16,19 @@ export default function CVPage() {
         </div>
 
         <div className="window-body flex flex-col gap-3 flex-1 min-h-0">
-          <div className="field-row" style={{ flexWrap: "wrap", gap: 8 }}>
+          <div className="field-row flex-wrap gap-2">
             <Link href="/">
               <button>Back</button>
             </Link>
-            <a href={pdfPath} download>
-              <button>Download PDF</button>
-            </a>
-            <a href={pdfPath} target="_blank" rel="noopener noreferrer">
-              <button>Open in new tab</button>
-            </a>
+
+            <div className="field-row flex-wrap gap-2 ml-auto">
+              <a href={pdfPath} download>
+                <button>Download PDF</button>
+              </a>
+              <a href={pdfPath} target="_blank" rel="noopener noreferrer">
+                <button>Open in new tab</button>
+              </a>
+            </div>
           </div>
 
           <div className="sunken-panel p-2 flex-1 min-h-0">
