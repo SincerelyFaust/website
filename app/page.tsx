@@ -141,13 +141,12 @@ export default function Home() {
               <Link href="/cv">
                 <button>View CV</button>
               </Link>
-
               <a href={`mailto:${PROFILE.email}`}>
                 <button>Email</button>
               </a>
             </div>
 
-            <div className="mt-3">
+            <div className="mt-3 flex flex-col gap-2">
               <div className="status-bar">
                 <p className="status-bar-field">
                   Want to see code? Browse my{" "}
@@ -162,8 +161,7 @@ export default function Home() {
                   .
                 </p>
               </div>
-
-              <div className="status-bar mt-2">
+              <div className="status-bar">
                 <p className="status-bar-field">
                   Looking for experience & project history? See my{" "}
                   <Link href="/cv" className="underline">
@@ -184,13 +182,11 @@ export default function Home() {
             </div>
           </fieldset>
 
+          {/* About */}
           <fieldset>
             <legend>About</legend>
 
-            <div className="field-row-stacked">
-              <label className="font-bold">Age</label>
-              <input readOnly value={`${age}`} className="font-mono!" />
-            </div>
+            <ReadonlyField label="Age" value={`${age}`} />
 
             <div className="field-row-stacked">
               <label className="font-bold">What I do</label>
@@ -207,6 +203,7 @@ When I’m building, I care about the details: performance, state management, re
             </div>
           </fieldset>
 
+          {/* Links */}
           <fieldset>
             <legend>Links</legend>
 
