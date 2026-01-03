@@ -15,18 +15,18 @@ export default function CVPage() {
           </div>
         </div>
 
-        <div className="window-body flex flex-col gap-3 flex-1 min-h-0">
-          <div className="field-row flex-wrap gap-2">
+        <div className="window-body flex flex-col gap-2 flex-1 min-h-0">
+          <div className="flex flex-wrap items-center justify-between gap-2 px-2">
             <Link href="/">
               <button>Back</button>
             </Link>
 
-            <div className="field-row flex-wrap gap-2 ml-auto">
-              <a href={pdfPath} download>
-                <button>Download PDF</button>
-              </a>
+            <div className="flex flex-wrap items-center gap-2">
               <a href={pdfPath} target="_blank" rel="noopener noreferrer">
-                <button>Open in new tab</button>
+                <button>Open</button>
+              </a>
+              <a href={pdfPath} download>
+                <button>Download</button>
               </a>
             </div>
           </div>
