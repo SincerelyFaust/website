@@ -27,6 +27,36 @@ const SOCIAL = [
   { label: "Instagram", href: "/instagram" },
 ] as const;
 
+const APPEARANCES = [
+  {
+    conference: "Game Changer",
+    track: "WEB3 / The Road to Mainstream Adoption",
+    panel: "X-TO-EARN APPS: BLOCKCHAIN MODELS OF SUCCESS",
+    what_i_covered: `• X-to-earn app models and how they translate into real product flows
+• Practical implementation in modern apps (components, UX patterns, and state handling)
+• How to guide users through complex processes with clear steps, feedback, and helpful context`,
+    images: [
+      {
+        thumb: "/images/appearances/gamechanger/x-to-earn-1.jpeg",
+        full: "/images/appearances/gamechanger/x-to-earn-1.jpeg",
+        caption: "Speaker profile card on the Game Changer website.",
+      },
+      {
+        thumb: "/images/appearances/gamechanger/x-to-earn-2.jpeg",
+        full: "/images/appearances/gamechanger/x-to-earn-2.jpeg",
+        caption:
+          "On stage during the panel discussion (Web3 track: The Road to Mainstream Adoption).",
+      },
+      {
+        thumb: "/images/appearances/gamechanger/x-to-earn-3.jpeg",
+        full: "/images/appearances/gamechanger/x-to-earn-3.jpeg",
+        caption:
+          "Conference agenda showing the scheduled “X-to-Earn Apps” panel slot.",
+      },
+    ],
+  },
+] as const;
+
 function calculateAge(birthDateString: string): number {
   const today = dayjs();
   const birth = dayjs(birthDateString, "DD/MM/YYYY");
@@ -89,11 +119,26 @@ function ReadonlyField({ label, value }: { label: string; value: string }) {
 
 export default function Home() {
   const [now, setNow] = useState<Date>(() => new Date());
+  const [activeImage, setActiveImage] = useState<{
+    src: string;
+    caption?: string;
+  } | null>(null);
 
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 10_000);
     return () => clearInterval(t);
   }, []);
+
+  useEffect(() => {
+    if (!activeImage) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveImage(null);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [activeImage]);
 
   const age = useMemo(() => calculateAge(BIRTHDATE_DMY), []);
   const zagrebTime = getZagrebTimeString(now);
@@ -203,6 +248,55 @@ When I’m building, I care about the details: performance, state management, re
             </div>
           </fieldset>
 
+          {/* Appearances */}
+          <fieldset>
+            <legend>Appearances</legend>
+
+            <div className="flex flex-col gap-3">
+              {APPEARANCES.map((a) => (
+                <div key={`${a.conference}-${a.panel}`}>
+                  <div className="font-bold">{a.conference}</div>
+                  <div className="mt-1">
+                    <div className="font-bold">{a.panel}</div>
+                    <div className="mt-1">{a.track}</div>
+                  </div>
+
+                  <div className="field-row-stacked mt-2">
+                    <label className="font-bold">What I covered</label>
+                    <textarea
+                      readOnly
+                      rows={4}
+                      className="font-mono!"
+                      value={a.what_i_covered}
+                    />
+                  </div>
+
+                  <div className="field-row flex-wrap gap-2 mt-2">
+                    {a.images.map((img) => (
+                      <button
+                        key={img.thumb}
+                        onClick={() =>
+                          setActiveImage({
+                            src: img.full,
+                            caption: img.caption,
+                          })
+                        }
+                        className="p-0 border-none bg-transparent"
+                      >
+                        <img
+                          src={img.thumb}
+                          alt={img.caption}
+                          loading="lazy"
+                          className="w-24 h-16 object-cover border"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+
           {/* Links */}
           <fieldset>
             <legend>Links</legend>
@@ -233,6 +327,53 @@ When I’m building, I care about the details: performance, state management, re
           </div>
         </div>
       </div>
+
+      {/* Image modal */}
+      {activeImage && (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black/40 z-50"
+          onClick={() => setActiveImage(null)}
+        >
+          <div
+            className="window w-[92vw] max-w-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="title-bar">
+              <div className="title-bar-text">Appearance preview</div>
+              <div className="title-bar-controls">
+                <button
+                  aria-label="Close"
+                  onClick={() => setActiveImage(null)}
+                />
+              </div>
+            </div>
+
+            <div className="window-body flex flex-col gap-2">
+              <img
+                src={activeImage.src}
+                alt=""
+                className="w-full max-h-[60svh] object-contain"
+              />
+
+              {activeImage.caption && (
+                <div className="status-bar">
+                  <p className="status-bar-field">{activeImage.caption}</p>
+                </div>
+              )}
+
+              <div className="field-row">
+                <a
+                  href={activeImage.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button>Open original</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
