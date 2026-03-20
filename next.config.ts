@@ -22,11 +22,6 @@ const nextConfig: NextConfig = {
       destination: "https://instagram.com/marinhedes",
       permanent: true,
     },
-    {
-      source: "/cdw",
-      destination: "https://github.com/SincerelyFaust/crowdin-discord-webhook",
-      permanent: true,
-    },
   ],
 };
 
