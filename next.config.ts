@@ -22,6 +22,11 @@ const nextConfig: NextConfig = {
       destination: "https://instagram.com/marinhedes",
       permanent: true,
     },
+    {
+      source: "/npm",
+      destination: "https://www.npmjs.com/~sincerelyfaust",
+      permanent: true,
+    },
   ],
 };
 
