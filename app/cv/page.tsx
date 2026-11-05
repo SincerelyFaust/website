@@ -66,8 +66,7 @@ const experiences = [
     role: "Assistant worker in production",
     organization: "Vitafoam Croatia",
     period: "Mar 2021 — Jul 2023",
-    description:
-      "Assisted production operations and supported manufacturing workflows.",
+    description: "Assisted production operations and supported manufacturing workflows.",
     highlights: [],
   },
   {
@@ -226,13 +225,12 @@ export default function CVPage() {
         <CVSection number="01" title="Profile">
           <div className="max-w-165 space-y-3 text-[17px] leading-[1.85] tracking-[-0.015em] sm:text-lg">
             <p>
-              Front-end &amp; mobile developer building production web and
-              mobile apps with React (Next.js/Vite), Angular, and Flutter.
+              Front-end &amp; mobile developer building production web and mobile apps with React
+              (Next.js/Vite), Angular, and Flutter.
             </p>
             <p>
-              I focus on clean UI, performance, and maintainable architecture,
-              and I&apos;m comfortable owning features end-to-end—from
-              implementation to release.
+              I focus on clean UI, performance, and maintainable architecture, and I&apos;m
+              comfortable owning features end-to-end—from implementation to release.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-sm">
@@ -288,9 +286,7 @@ export default function CVPage() {
                   {experience.organization}
                 </p>
                 {experience.description && (
-                  <p className={`mt-5 text-sm leading-[1.9] ${muted}`}>
-                    {experience.description}
-                  </p>
+                  <p className={`mt-5 text-sm leading-[1.9] ${muted}`}>{experience.description}</p>
                 )}
                 {experience.highlights.length > 0 && (
                   <ul
@@ -312,9 +308,7 @@ export default function CVPage() {
           <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
             {projects.map((project) => (
               <article key={project.name} className="py-6 first:pt-0 last:pb-0">
-                <h3 className="text-lg font-semibold tracking-[-0.03em]">
-                  {project.name}
-                </h3>
+                <h3 className="text-lg font-semibold tracking-[-0.03em]">{project.name}</h3>
                 <ul
                   className={`mt-3 list-disc space-y-2 pl-4 text-sm leading-[1.9] marker:text-zinc-400 dark:marker:text-zinc-600 ${muted}`}
                 >
@@ -333,12 +327,8 @@ export default function CVPage() {
           <dl className="grid grid-cols-1 gap-x-10 gap-y-7 sm:grid-cols-2">
             {skillGroups.map((group) => (
               <div key={group.title}>
-                <dt className="mb-2 text-sm font-semibold tracking-[-0.015em]">
-                  {group.title}
-                </dt>
-                <dd className={`text-sm leading-[1.8] ${muted}`}>
-                  {group.values}
-                </dd>
+                <dt className="mb-2 text-sm font-semibold tracking-[-0.015em]">{group.title}</dt>
+                <dd className={`text-sm leading-[1.8] ${muted}`}>{group.values}</dd>
               </div>
             ))}
           </dl>
@@ -386,9 +376,7 @@ export default function CVPage() {
               </div>
               <div>
                 <p className={`${sectionLabel} mb-3`}>ADDITIONAL INFORMATION</p>
-                <p className={`text-sm ${muted}`}>
-                  Driving Licence: Category B
-                </p>
+                <p className={`text-sm ${muted}`}>Driving Licence: Category B</p>
               </div>
             </div>
           </div>

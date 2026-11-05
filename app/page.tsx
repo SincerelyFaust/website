@@ -65,8 +65,7 @@ const APPEARANCES = [
       },
       {
         src: "/images/appearances/gamechanger/x-to-earn-3.jpeg",
-        caption:
-          "Conference agenda showing the scheduled X-to-Earn Apps panel slot.",
+        caption: "Conference agenda showing the scheduled X-to-Earn Apps panel slot.",
       },
     ],
   },
@@ -91,9 +90,9 @@ function getTzOffsetMinutes(date: Date, timeZone: string) {
       timeZoneName: "shortOffset",
       hour: "2-digit",
     }).formatToParts(date);
-    const match = (
-      parts.find((part) => part.type === "timeZoneName")?.value ?? ""
-    ).match(/([+-])(\d{1,2})(?::?(\d{2}))?/i);
+    const match = (parts.find((part) => part.type === "timeZoneName")?.value ?? "").match(
+      /([+-])(\d{1,2})(?::?(\d{2}))?/i,
+    );
     if (!match) return -date.getTimezoneOffset();
     const minutes = Number(match[2]) * 60 + Number(match[3] ?? 0);
     return match[1] === "-" ? -minutes : minutes;
@@ -167,13 +166,13 @@ export default function Home() {
           className={`${container} relative grid grid-cols-1 items-center gap-12 pt-28 pb-20 md:grid-cols-[minmax(0,1.45fr)_minmax(0,.9fr)] md:gap-[clamp(2.5rem,8vw,7.25rem)] md:pt-36 md:pb-28`}
           aria-labelledby="hero-title"
         >
-          <div className="absolute right-0 top-7 md:top-10">
+          <div className="absolute top-7 right-0 md:top-10">
             <ThemeToggle />
           </div>
           <div>
             <p className="mb-7 flex items-center gap-3 font-mono text-[10px] font-semibold tracking-[.095em] text-zinc-600 dark:text-zinc-400">
-              <span className="h-px w-5 bg-zinc-950 dark:bg-zinc-100" />{" "}
-              FRONT-END & MOBILE DEVELOPER
+              <span className="h-px w-5 bg-zinc-950 dark:bg-zinc-100" /> FRONT-END & MOBILE
+              DEVELOPER
             </p>
             <h1
               id="hero-title"
@@ -186,9 +185,8 @@ export default function Home() {
               </span>
             </h1>
             <p className="mb-8 max-w-127.5 text-[15px] leading-[1.9] text-zinc-600 sm:text-base dark:text-zinc-400">
-              I build production apps that feel fast, clean, and reliable—with
-              an eye for thoughtful interfaces and a better developer
-              experience.
+              I build production apps that feel fast, clean, and reliable—with an eye for thoughtful
+              interfaces and a better developer experience.
             </p>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
               <a
@@ -239,22 +237,19 @@ export default function Home() {
           </div>
           <div>
             <p className="mb-6 text-[19px] leading-[1.65] font-medium tracking-[-0.015em]">
-              I’m a front-end and mobile developer focused on building
-              production apps that feel fast, clean, and reliable.
+              I’m a front-end and mobile developer focused on building production apps that feel
+              fast, clean, and reliable.
             </p>
             <p className={bodyCopy}>
-              I’m most passionate about software development and developer
-              experience (DX): reducing friction, keeping codebases
-              maintainable, and making delivery predictable. I enjoy setting up
-              solid foundations—shared UI patterns, reusable modules, automation
-              scripts, and CI checks—so teams can move quickly without breaking
-              things.
+              I’m most passionate about software development and developer experience (DX): reducing
+              friction, keeping codebases maintainable, and making delivery predictable. I enjoy
+              setting up solid foundations—shared UI patterns, reusable modules, automation scripts,
+              and CI checks—so teams can move quickly without breaking things.
             </p>
             <p className={bodyCopy}>
-              When I’m building, I care about performance, state management,
-              realtime behavior, and clean UX. I like owning features
-              end-to-end, from implementation to release, and I’m happiest when
-              the product and the workflow both feel smooth.
+              When I’m building, I care about performance, state management, realtime behavior, and
+              clean UX. I like owning features end-to-end, from implementation to release, and I’m
+              happiest when the product and the workflow both feel smooth.
             </p>
             <div
               className="mt-10 grid grid-cols-2 gap-x-5 gap-y-7 border-t border-zinc-200 pt-7 sm:gap-x-8 dark:border-zinc-800"
@@ -262,28 +257,20 @@ export default function Home() {
             >
               <div className="flex min-w-0 flex-col items-start gap-2">
                 <span className="text-[11px] text-zinc-500">Location</span>
-                <strong className="text-xs leading-normal font-semibold">
-                  {PROFILE.location}
-                </strong>
+                <strong className="text-xs leading-normal font-semibold">{PROFILE.location}</strong>
               </div>
               <div className="flex min-w-0 flex-col items-start gap-2">
                 <span className="text-[11px] text-zinc-500">Age</span>
-                <strong className="text-xs leading-normal font-semibold">
-                  {age}
-                </strong>
+                <strong className="text-xs leading-normal font-semibold">{age}</strong>
               </div>
               <div className="flex min-w-0 flex-col items-start gap-2">
-                <span className="text-[11px] text-zinc-500">
-                  Local time · Zagreb
-                </span>
+                <span className="text-[11px] text-zinc-500">Local time · Zagreb</span>
                 <strong className="text-xs leading-normal font-semibold">
                   {now ? getLocalTime(now) : "—"}
                 </strong>
               </div>
               <div className="flex min-w-0 flex-col items-start gap-2">
-                <span className="text-[11px] text-zinc-500">
-                  Time difference
-                </span>
+                <span className="text-[11px] text-zinc-500">Time difference</span>
                 <strong className="text-xs leading-normal font-semibold">
                   {now ? getTimezoneDifference(now) : "—"}
                 </strong>
@@ -326,9 +313,7 @@ export default function Home() {
               >
                 <div className="mb-6 flex flex-wrap items-center justify-between gap-3 font-mono text-[10px] font-medium tracking-[.075em] text-zinc-500 dark:text-zinc-400">
                   <span>{pkg.category}</span>
-                  <span>
-                    {String(index + 1).padStart(2, "0")} / NPM PACKAGE
-                  </span>
+                  <span>{String(index + 1).padStart(2, "0")} / NPM PACKAGE</span>
                 </div>
                 <h3 className="mb-4 text-[clamp(1.5rem,2.6vw,2rem)] leading-tight font-semibold tracking-[-0.045em]">
                   {pkg.name}
@@ -408,13 +393,9 @@ export default function Home() {
                 <h3 className="mb-2.5 max-w-120 text-[clamp(1.25rem,2.1vw,1.5rem)] leading-[1.3] font-semibold tracking-[-0.035em]">
                   {appearance.panel}
                 </h3>
-                <p className="text-[11px] leading-relaxed text-zinc-500">
-                  {appearance.track}
-                </p>
+                <p className="text-[11px] leading-relaxed text-zinc-500">{appearance.track}</p>
                 <div className="mt-6 border-t border-zinc-200 pt-5 pb-4 dark:border-zinc-700">
-                  <h4 className="mb-3 text-[11px] font-semibold">
-                    What I covered
-                  </h4>
+                  <h4 className="mb-3 text-[11px] font-semibold">What I covered</h4>
                   <ul className="space-y-2 text-xs leading-[1.7] text-zinc-600 dark:text-zinc-400">
                     {appearance.covered.map((item) => (
                       <li className="flex items-start gap-2" key={item}>
@@ -451,9 +432,7 @@ export default function Home() {
                     </button>
                   ))}
                 </div>
-                <p className="mt-3 text-[10px] text-zinc-500">
-                  Select a photo to view it larger.
-                </p>
+                <p className="mt-3 text-[10px] text-zinc-500">Select a photo to view it larger.</p>
               </article>
             ))}
           </div>
@@ -477,8 +456,7 @@ export default function Home() {
               in mind?
             </h2>
             <p className="my-6 max-w-105 text-sm leading-[1.8] text-zinc-600 dark:text-zinc-400">
-              Whether it’s a project, an idea, or just a conversation—feel free
-              to reach out.
+              Whether it’s a project, an idea, or just a conversation—feel free to reach out.
             </p>
             <a
               className="inline-flex items-center gap-4 border-b border-zinc-950 pb-2 text-[clamp(1.063rem,2.1vw,1.563rem)] font-medium tracking-[-0.04em] hover:text-zinc-500 dark:border-zinc-100"
