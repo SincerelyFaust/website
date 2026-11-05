@@ -16,11 +16,13 @@
     "check": "pnpm run lint && pnpm run typecheck && pnpm run format:check"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "dayjs": "^1.11.23",
     "next": "16.4.5",
     "next-themes": "^0.4.6",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.4",

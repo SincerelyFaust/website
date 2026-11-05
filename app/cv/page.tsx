@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import ActionLink from "../components/action-link";
 import ThemeToggle from "../components/theme-toggle";
 
 export const metadata: Metadata = {
@@ -11,18 +12,31 @@ export const metadata: Metadata = {
 
 const pdfPath = "/cv/cv.pdf";
 
-const actionLink =
-  "inline-flex min-h-11 items-center border-b border-zinc-400 px-0.5 text-sm font-medium tracking-[-0.02em] transition-colors hover:border-zinc-950 hover:text-zinc-600 focus-visible:outline-2 focus-visible:outline-offset-4 dark:border-zinc-600 dark:hover:border-zinc-100 dark:hover:text-zinc-300";
+type Experience = Readonly<{
+  role: string;
+  organization: string;
+  period: string;
+  description?: string;
+  highlights: readonly string[];
+}>;
 
-const sectionLabel =
-  "font-mono text-[10px] font-semibold tracking-[0.095em] text-zinc-600 dark:text-zinc-400";
+type CVProject = Readonly<{
+  name: string;
+  highlights: readonly string[];
+}>;
 
-const sectionHeading =
-  "text-[clamp(1.75rem,3vw,2.25rem)] leading-[1.2] font-semibold tracking-[-0.045em]";
+type SkillGroup = Readonly<{
+  title: string;
+  values: string;
+}>;
 
-const muted = "text-zinc-600 dark:text-zinc-400";
+type CVSectionProps = Readonly<{
+  number: string;
+  title: string;
+  children: ReactNode;
+}>;
 
-const experiences = [
+const experiences: readonly Experience[] = [
   {
     role: "Freelance Software Developer",
     organization: "Self-employed",
@@ -42,7 +56,6 @@ const experiences = [
     role: "Seasonal Worker",
     organization: "Seasonal Employment",
     period: "22 Jul 2026 — 9 Oct 2026",
-    description: "",
     highlights: [],
   },
   {
@@ -77,9 +90,9 @@ const experiences = [
       "Supported day-to-day on-site operations and assisted the team with assigned tasks.",
     highlights: [],
   },
-] as const;
+];
 
-const projects = [
+const projects: readonly CVProject[] = [
   {
     name: "dahliaOS (Open Source)",
     highlights: [
@@ -100,9 +113,9 @@ const projects = [
       "Implemented native Apple Pay and Google Pay integrations, cryptocurrency wallet functionality, biometric authentication, real-time messaging, and push notifications.",
     ],
   },
-] as const;
+];
 
-const skillGroups = [
+const skillGroups: readonly SkillGroup[] = [
   {
     title: "Frontend",
     values:
@@ -135,29 +148,24 @@ const skillGroups = [
     title: "Product & Design",
     values: "Figma, Adobe Suite",
   },
-] as const;
+];
 
-function CVSection({
-  number,
-  title,
-  children,
-}: {
-  number: string;
-  title: string;
-  children: ReactNode;
-}) {
+function CVSection({ number, title, children }: CVSectionProps) {
   return (
     <section
       className="grid grid-cols-1 gap-7 border-t border-zinc-200 py-11 sm:py-14 md:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)] md:gap-12 dark:border-zinc-800"
       aria-labelledby={`section-${number}`}
     >
       <div>
-        <p className={`${sectionLabel} mb-4 flex items-center gap-3`}>
+        <p className="mb-4 flex items-center gap-3 font-mono text-[10px] font-semibold tracking-[0.095em] text-zinc-600 dark:text-zinc-400">
           {number}
           <span className="h-px w-6 bg-zinc-300 dark:bg-zinc-700" />
           {title.toUpperCase()}
         </p>
-        <h2 id={`section-${number}`} className={sectionHeading}>
+        <h2
+          id={`section-${number}`}
+          className="text-[clamp(1.75rem,3vw,2.25rem)] leading-[1.2] font-semibold tracking-[-0.045em]"
+        >
           {title}
         </h2>
       </div>
@@ -184,7 +192,7 @@ export default function CVPage() {
         </Link>
 
         <header className="pt-12 pb-12 sm:pt-16 sm:pb-16">
-          <p className={`${sectionLabel} mb-7 flex items-center gap-3`}>
+          <p className="mb-7 flex items-center gap-3 font-mono text-[10px] font-semibold tracking-[0.095em] text-zinc-600 dark:text-zinc-400">
             <span className="h-px w-5 bg-zinc-950 dark:bg-zinc-100" />
             CURRICULUM VITAE
           </p>
@@ -201,23 +209,17 @@ export default function CVPage() {
               </p>
             </div>
             <div className="flex shrink-0 flex-wrap items-center gap-x-8 gap-y-2">
-              <a
+              <ActionLink
                 href={pdfPath}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={actionLink}
                 aria-label="Open the original CV PDF in a new tab"
               >
                 Open PDF
-              </a>
-              <a
-                href={pdfPath}
-                download
-                className={actionLink}
-                aria-label="Download the original CV PDF"
-              >
+              </ActionLink>
+              <ActionLink href={pdfPath} download aria-label="Download the original CV PDF">
                 Download PDF
-              </a>
+              </ActionLink>
             </div>
           </div>
         </header>
@@ -234,36 +236,22 @@ export default function CVPage() {
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-sm">
-            <a className={actionLink} href="mailto:hedesmarin@gmail.com">
-              Email
-            </a>
-            <a
-              className={actionLink}
-              href="https://marinhedes.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Website
-            </a>
-            <a
-              className={actionLink}
+            <ActionLink href="mailto:hedesmarin@gmail.com">Email</ActionLink>
+            <ActionLink
               href="https://github.com/sincerelyfaust"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
-            </a>
-            <a
-              className={actionLink}
+            </ActionLink>
+            <ActionLink
               href="https://linkedin.com/in/marinhedes"
               target="_blank"
               rel="noopener noreferrer"
             >
               LinkedIn
-            </a>
-            <a className={actionLink} href="tel:+385957756683">
-              +385 95 775 6683
-            </a>
+            </ActionLink>
+            <ActionLink href="tel:+385957756683">+385 95 775 6683</ActionLink>
           </div>
         </CVSection>
 
@@ -286,12 +274,12 @@ export default function CVPage() {
                   {experience.organization}
                 </p>
                 {experience.description && (
-                  <p className={`mt-5 text-sm leading-[1.9] ${muted}`}>{experience.description}</p>
+                  <p className="mt-5 text-sm leading-[1.9] text-zinc-600 dark:text-zinc-400">
+                    {experience.description}
+                  </p>
                 )}
                 {experience.highlights.length > 0 && (
-                  <ul
-                    className={`mt-4 list-disc space-y-2.5 pl-4 text-sm leading-[1.85] marker:text-zinc-400 dark:marker:text-zinc-600 ${muted}`}
-                  >
+                  <ul className="mt-4 list-disc space-y-2.5 pl-4 text-sm leading-[1.85] text-zinc-600 marker:text-zinc-400 dark:text-zinc-400 dark:marker:text-zinc-600">
                     {experience.highlights.map((highlight) => (
                       <li key={highlight} className="pl-1">
                         {highlight}
@@ -309,9 +297,7 @@ export default function CVPage() {
             {projects.map((project) => (
               <article key={project.name} className="py-6 first:pt-0 last:pb-0">
                 <h3 className="text-lg font-semibold tracking-[-0.03em]">{project.name}</h3>
-                <ul
-                  className={`mt-3 list-disc space-y-2 pl-4 text-sm leading-[1.9] marker:text-zinc-400 dark:marker:text-zinc-600 ${muted}`}
-                >
+                <ul className="mt-3 list-disc space-y-2 pl-4 text-sm leading-[1.9] text-zinc-600 marker:text-zinc-400 dark:text-zinc-400 dark:marker:text-zinc-600">
                   {project.highlights.map((highlight) => (
                     <li key={highlight} className="pl-1">
                       {highlight}
@@ -328,7 +314,9 @@ export default function CVPage() {
             {skillGroups.map((group) => (
               <div key={group.title}>
                 <dt className="mb-2 text-sm font-semibold tracking-[-0.015em]">{group.title}</dt>
-                <dd className={`text-sm leading-[1.8] ${muted}`}>{group.values}</dd>
+                <dd className="text-sm leading-[1.8] text-zinc-600 dark:text-zinc-400">
+                  {group.values}
+                </dd>
               </div>
             ))}
           </dl>
@@ -337,7 +325,9 @@ export default function CVPage() {
         <CVSection number="05" title="Background">
           <div className="space-y-9">
             <div>
-              <p className={`${sectionLabel} mb-3`}>EDUCATION</p>
+              <p className="mb-3 font-mono text-[10px] font-semibold tracking-[0.095em] text-zinc-600 dark:text-zinc-400">
+                EDUCATION
+              </p>
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                 <h3 className="font-semibold tracking-[-0.02em]">
                   Industrijsko-obrtnička škola, Slavonski Brod
@@ -346,16 +336,18 @@ export default function CVPage() {
                   Sep 2016 — Jun 2019
                 </p>
               </div>
-              <p className={`mt-2 text-sm leading-[1.8] ${muted}`}>
+              <p className="mt-2 text-sm leading-[1.8] text-zinc-600 dark:text-zinc-400">
                 High School — Computer Numerically Controlled (CNC) Machinist
               </p>
-              <p className={`mt-1 text-sm leading-[1.8] ${muted}`}>
+              <p className="mt-1 text-sm leading-[1.8] text-zinc-600 dark:text-zinc-400">
                 High school diploma program focused on CNC machining.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               <div>
-                <p className={`${sectionLabel} mb-3`}>CERTIFICATES</p>
+                <p className="mb-3 font-mono text-[10px] font-semibold tracking-[0.095em] text-zinc-600 dark:text-zinc-400">
+                  CERTIFICATES
+                </p>
                 <a
                   href="https://www.freecodecamp.org/certification/SincerelyFaust/responsive-web-design"
                   target="_blank"
@@ -364,19 +356,25 @@ export default function CVPage() {
                 >
                   Responsive Web Design (freeCodeCamp)
                 </a>
-                <p className={`mt-2 text-sm ${muted}`}>2023</p>
+                <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">2023</p>
               </div>
               <div>
-                <p className={`${sectionLabel} mb-3`}>LANGUAGES</p>
-                <p className={`text-sm leading-[1.8] ${muted}`}>
+                <p className="mb-3 font-mono text-[10px] font-semibold tracking-[0.095em] text-zinc-600 dark:text-zinc-400">
+                  LANGUAGES
+                </p>
+                <p className="text-sm leading-[1.8] text-zinc-600 dark:text-zinc-400">
                   English — Native or Bilingual Proficiency
                   <br />
                   Croatian — Native or Bilingual Proficiency
                 </p>
               </div>
               <div>
-                <p className={`${sectionLabel} mb-3`}>ADDITIONAL INFORMATION</p>
-                <p className={`text-sm ${muted}`}>Driving Licence: Category B</p>
+                <p className="mb-3 font-mono text-[10px] font-semibold tracking-[0.095em] text-zinc-600 dark:text-zinc-400">
+                  ADDITIONAL INFORMATION
+                </p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  Driving Licence: Category B
+                </p>
               </div>
             </div>
           </div>
