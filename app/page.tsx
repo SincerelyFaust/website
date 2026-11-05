@@ -26,6 +26,23 @@ const SOCIAL = [
   { label: "Instagram", href: "/instagram" },
 ] as const;
 
+const PACKAGES = [
+  {
+    name: "react-fit-list",
+    category: "REACT / TYPESCRIPT",
+    description:
+      "A headless React utility for responsive lists that collapses overflowing items into a customizable disclosure.",
+    detail:
+      "Use the ready-to-use component or the headless hook when you want full control over the UI.",
+    install: "npm install react-fit-list",
+    github: "https://github.com/SincerelyFaust/react-fit-list",
+    npm: "https://www.npmjs.com/package/react-fit-list",
+    demo: "https://sincerelyfaust.github.io/react-fit-list/",
+  },
+] as const;
+
+const GITHUB_PROFILE = "https://github.com/SincerelyFaust";
+
 const APPEARANCES = [
   {
     conference: "Game Changer",
@@ -169,6 +186,15 @@ export default function Home() {
               experience.
             </p>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+              <a
+                href={GITHUB_PROFILE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={actionLink}
+                aria-label="Explore my GitHub profile"
+              >
+                GitHub
+              </a>
               <Link href="/cv" className={actionLink}>
                 CV
               </Link>
@@ -262,13 +288,99 @@ export default function Home() {
         </section>
 
         <section
+          id="open-source"
+          className={`${container} grid grid-cols-1 gap-8 border-t border-zinc-200 py-20 md:grid-cols-[.84fr_1.16fr] md:gap-x-[clamp(2.75rem,10vw,8.75rem)] md:py-24 dark:border-zinc-800`}
+          aria-labelledby="open-source-title"
+        >
+          <div>
+            <p className={sectionLabel}>
+              02 <span className={labelRule} /> OPEN SOURCE
+            </p>
+            <h2 id="open-source-title" className={sectionHeading}>
+              Built to be
+              <br />
+              shared.
+            </h2>
+            <p className="mt-5 max-w-75 text-sm leading-[1.85] text-zinc-600 dark:text-zinc-400">
+              Small, practical tools I build and share with other developers.
+            </p>
+            <a
+              href={GITHUB_PROFILE}
+              className={`${actionLink} mt-4`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore my GitHub
+            </a>
+          </div>
+          <div className="space-y-5">
+            {PACKAGES.map((pkg, index) => (
+              <article
+                key={pkg.name}
+                className="rounded-md border border-zinc-200 bg-white p-5 sm:p-7 dark:border-zinc-700 dark:bg-zinc-900"
+              >
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-3 font-mono text-[10px] font-medium tracking-[.075em] text-zinc-500 dark:text-zinc-400">
+                  <span>{pkg.category}</span>
+                  <span>
+                    {String(index + 1).padStart(2, "0")} / NPM PACKAGE
+                  </span>
+                </div>
+                <h3 className="mb-4 text-[clamp(1.5rem,2.6vw,2rem)] leading-tight font-semibold tracking-[-0.045em]">
+                  {pkg.name}
+                </h3>
+                <p className="text-sm leading-[1.85] text-zinc-700 dark:text-zinc-300">
+                  {pkg.description}
+                </p>
+                <p className="mt-3 text-xs leading-[1.8] text-zinc-500 dark:text-zinc-400">
+                  {pkg.detail}
+                </p>
+                <div className="mt-7 border-y border-zinc-200 py-5 dark:border-zinc-700">
+                  <p className="mb-3 font-mono text-[10px] font-medium tracking-[.075em] text-zinc-500 dark:text-zinc-400">
+                    INSTALL
+                  </p>
+                  <code className="block overflow-x-auto font-mono text-xs leading-6 text-zinc-950 dark:text-zinc-100">
+                    {pkg.install}
+                  </code>
+                </div>
+                <div className="flex flex-wrap items-center gap-x-7 gap-y-2 pt-3">
+                  <a
+                    href={pkg.demo}
+                    className={actionLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live demo
+                  </a>
+                  <a
+                    href={pkg.github}
+                    className={actionLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href={pkg.npm}
+                    className={actionLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    npm
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section
           id="appearances"
           className={`${container} grid grid-cols-1 gap-8 border-t border-zinc-200 py-20 md:grid-cols-[.84fr_1.16fr] md:gap-x-[clamp(2.75rem,10vw,8.75rem)] md:py-24 dark:border-zinc-800`}
           aria-labelledby="appearances-title"
         >
           <div>
             <p className={sectionLabel}>
-              02 <span className={labelRule} /> APPEARANCES
+              03 <span className={labelRule} /> APPEARANCES
             </p>
             <h2 id="appearances-title" className={sectionHeading}>
               Sharing ideas
@@ -349,7 +461,7 @@ export default function Home() {
         >
           <div>
             <p className={sectionLabel}>
-              03 <span className={labelRule} /> CONTACT
+              04 <span className={labelRule} /> CONTACT
             </p>
             <h2
               id="contact-title"
