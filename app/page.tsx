@@ -129,9 +129,14 @@ export default function Home() {
   const age = dayjs().diff(dayjs(PROFILE.birthdate, "DD/MM/YYYY"), "year");
 
   useEffect(() => {
-    setNow(new Date());
-    const timer = window.setInterval(() => setNow(new Date()), 30_000);
-    return () => window.clearInterval(timer);
+    const updateTime = () => setNow(new Date());
+    const initialTimer = window.setTimeout(updateTime, 0);
+    const interval = window.setInterval(updateTime, 30_000);
+
+    return () => {
+      window.clearTimeout(initialTimer);
+      window.clearInterval(interval);
+    };
   }, []);
 
   useEffect(() => {

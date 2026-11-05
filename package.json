@@ -8,8 +8,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "prettier": "prettier --write ."
+    "lint": "eslint"
   },
   "dependencies": {
     "dayjs": "^1.11.23",
