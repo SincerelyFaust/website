@@ -101,8 +101,8 @@ const labelRule = "inline-block h-px w-6 bg-zinc-300 dark:bg-zinc-700";
 const sectionHeading =
   "text-[clamp(2.25rem,3.4vw,3.125rem)] leading-[1.17] font-semibold tracking-[-0.048em]";
 const bodyCopy = "mb-5 text-sm leading-[1.95] text-zinc-600 dark:text-zinc-400";
-const buttonBase =
-  "inline-flex min-h-[46px] items-center justify-center gap-7 whitespace-nowrap rounded-[5px] border px-4 py-3 text-xs font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4";
+const actionLink =
+  "inline-flex min-h-11 items-center border-b border-zinc-400 px-0.5 text-sm font-medium tracking-[-0.02em] transition-colors hover:border-zinc-950 hover:text-zinc-600 focus-visible:outline-2 focus-visible:outline-offset-4 dark:border-zinc-600 dark:hover:border-zinc-100 dark:hover:text-zinc-300";
 
 export default function Home() {
   const [now, setNow] = useState<Date | null>(null);
@@ -168,18 +168,12 @@ export default function Home() {
               an eye for thoughtful interfaces and a better developer
               experience.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href="/cv"
-                className={`${buttonBase} border-zinc-950 bg-zinc-950 text-white hover:bg-zinc-700 hover:border-zinc-700 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:border-zinc-300 dark:hover:bg-zinc-300`}
-              >
-                View my CV <span aria-hidden="true">↗</span>
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+              <Link href="/cv" className={actionLink}>
+                CV
               </Link>
-              <a
-                href={`mailto:${PROFILE.email}`}
-                className={`${buttonBase} border-zinc-300 bg-transparent text-zinc-950 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800`}
-              >
-                Get in touch <span aria-hidden="true">↗</span>
+              <a href={`mailto:${PROFILE.email}`} className={actionLink}>
+                Email
               </a>
             </div>
           </div>
@@ -194,10 +188,6 @@ export default function Home() {
                 className="object-cover object-center grayscale"
               />
             </div>
-            <figcaption className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 pt-3 font-mono text-[9px] font-medium tracking-[.04em] text-zinc-500">
-              <span>MARIN HEĐEŠ</span>
-              <span>BASED IN {PROFILE.location.toUpperCase()}</span>
-            </figcaption>
           </figure>
         </section>
 
@@ -341,12 +331,6 @@ export default function Home() {
                         sizes="(max-width: 600px) 33vw, 230px"
                         className="object-cover grayscale group-hover:opacity-85"
                       />
-                      <span
-                        className="absolute right-2 bottom-2 flex size-6 items-center justify-center rounded-sm bg-black/65 text-sm text-white"
-                        aria-hidden="true"
-                      >
-                        ↗
-                      </span>
                     </button>
                   ))}
                 </div>
@@ -384,7 +368,6 @@ export default function Home() {
               href={`mailto:${PROFILE.email}`}
             >
               {PROFILE.email}
-              <span aria-hidden="true">↗</span>
             </a>
           </div>
           <div className="w-full max-w-85 md:max-w-55 md:self-end md:justify-self-end">
@@ -401,9 +384,6 @@ export default function Home() {
                   className="flex items-center justify-between border-b border-zinc-200 py-3 text-xs hover:text-zinc-500 dark:border-zinc-800"
                 >
                   {social.label}
-                  <span className="text-sm text-zinc-500" aria-hidden="true">
-                    ↗
-                  </span>
                 </Link>
               ))}
             </div>
@@ -455,7 +435,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open original ↗
+                View full image
               </a>
             </div>
           </div>

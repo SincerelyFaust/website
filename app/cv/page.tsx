@@ -2,8 +2,8 @@ import Link from "next/link";
 import ThemeToggle from "../components/theme-toggle";
 
 const pdfPath = "/cv/cv.pdf";
-const buttonBase =
-  "inline-flex min-h-[46px] items-center justify-center gap-6 whitespace-nowrap rounded-[5px] border px-4 py-3 text-xs font-semibold focus-visible:outline-2 focus-visible:outline-offset-4";
+const actionLink =
+  "inline-flex min-h-11 items-center border-b border-zinc-400 px-0.5 text-sm font-medium tracking-[-0.02em] transition-colors hover:border-zinc-950 hover:text-zinc-600 focus-visible:outline-2 focus-visible:outline-offset-4 dark:border-zinc-600 dark:hover:border-zinc-100 dark:hover:text-zinc-300";
 
 export default function CVPage() {
   return (
@@ -19,7 +19,7 @@ export default function CVPage() {
           href="/"
           className="inline-flex items-center gap-2.5 text-xs text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white"
         >
-          <span aria-hidden="true">←</span> Back to home
+          Home
         </Link>
         <div className="flex flex-col items-start justify-between gap-7 pt-12 pb-10 md:flex-row md:items-end md:gap-9">
           <div>
@@ -34,21 +34,23 @@ export default function CVPage() {
               Experience, projects, and background—all in one place.
             </p>
           </div>
-          <div className="flex flex-wrap gap-2.5">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
             <a
               href={pdfPath}
-              className={`${buttonBase} border-zinc-300 hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800`}
+              className={actionLink}
+              aria-label="Open CV PDF in a new tab"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open PDF ↗
+              Open
             </a>
             <a
               href={pdfPath}
-              className={`${buttonBase} border-zinc-950 bg-zinc-950 text-white hover:bg-zinc-700 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-zinc-300`}
+              className={actionLink}
+              aria-label="Download CV PDF"
               download
             >
-              Download PDF ↓
+              Download
             </a>
           </div>
         </div>
@@ -67,10 +69,10 @@ export default function CVPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open the CV in a new tab ↗
+                Open the CV in a new tab
               </a>
               <a className="mt-3 block underline" href={pdfPath} download>
-                Download the CV ↓
+                Download the CV
               </a>
             </div>
           </object>
