@@ -2,14 +2,55 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import ActionLink from "./components/action-link";
 import ThemeToggle from "./components/theme-toggle";
+import { cn } from "@/lib/utils";
 
 dayjs.extend(customParseFormat);
 
-const PROFILE = {
+type Profile = Readonly<{
+  name: string;
+  role: string;
+  location: string;
+  timezone: string;
+  email: string;
+  avatar: string;
+  birthdate: string;
+}>;
+
+type SocialLink = Readonly<{
+  label: string;
+  href: string;
+}>;
+
+type NpmPackage = Readonly<{
+  name: string;
+  category: string;
+  description: string;
+  detail: string;
+  install: string;
+  github: string;
+  npm: string;
+  demo: string;
+}>;
+
+type GalleryImage = Readonly<{
+  src: string;
+  caption: string;
+}>;
+
+type Appearance = Readonly<{
+  conference: string;
+  track: string;
+  panel: string;
+  covered: readonly string[];
+  images: readonly GalleryImage[];
+}>;
+
+const PROFILE: Profile = {
   name: "Marin Heđeš",
   role: "Front-End & Mobile Developer",
   location: "Slavonski Brod, Croatia",
@@ -19,14 +60,14 @@ const PROFILE = {
   birthdate: "23/02/2001",
 };
 
-const SOCIAL = [
+const SOCIAL: readonly SocialLink[] = [
   { label: "GitHub", href: "/github" },
   { label: "LinkedIn", href: "/linkedin" },
   { label: "Twitter", href: "/twitter" },
   { label: "Instagram", href: "/instagram" },
-] as const;
+];
 
-const PACKAGES = [
+const PACKAGES: readonly NpmPackage[] = [
   {
     name: "react-fit-list",
     category: "REACT / TYPESCRIPT",
@@ -39,11 +80,11 @@ const PACKAGES = [
     npm: "https://www.npmjs.com/package/react-fit-list",
     demo: "https://sincerelyfaust.github.io/react-fit-list/",
   },
-] as const;
+];
 
 const GITHUB_PROFILE = "https://github.com/SincerelyFaust";
 
-const APPEARANCES = [
+const APPEARANCES: readonly Appearance[] = [
   {
     conference: "Game Changer",
     track: "WEB3 / The Road to Mainstream Adoption",
@@ -69,11 +110,9 @@ const APPEARANCES = [
       },
     ],
   },
-] as const;
+];
 
-type GalleryImage = { src: string; caption: string };
-
-function getLocalTime(now: Date) {
+function getLocalTime(now: Date): string {
   return new Intl.DateTimeFormat("en-GB", {
     timeZone: PROFILE.timezone,
     weekday: "short",
@@ -83,7 +122,7 @@ function getLocalTime(now: Date) {
   }).format(now);
 }
 
-function getTzOffsetMinutes(date: Date, timeZone: string) {
+function getTzOffsetMinutes(date: Date, timeZone: string): number {
   try {
     const parts = new Intl.DateTimeFormat("en-US", {
       timeZone,
@@ -101,7 +140,7 @@ function getTzOffsetMinutes(date: Date, timeZone: string) {
   }
 }
 
-function getTimezoneDifference(now: Date) {
+function getTimezoneDifference(now: Date): string {
   const difference = Math.round(
     (getTzOffsetMinutes(now, PROFILE.timezone) + now.getTimezoneOffset()) / 60,
   );
@@ -109,16 +148,60 @@ function getTimezoneDifference(now: Date) {
   return `${Math.abs(difference)} hr ${difference > 0 ? "ahead of" : "behind"} you`;
 }
 
-const container =
-  "mx-auto w-[calc(100%-2.5rem)] max-w-[1120px] sm:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)]";
-const sectionLabel =
-  "mb-6 flex items-center gap-3 font-mono text-[10px] font-semibold tracking-[.095em] text-zinc-600 dark:text-zinc-400";
-const labelRule = "inline-block h-px w-6 bg-zinc-300 dark:bg-zinc-700";
-const sectionHeading =
-  "text-[clamp(2.25rem,3.4vw,3.125rem)] leading-[1.17] font-semibold tracking-[-0.048em]";
-const bodyCopy = "mb-5 text-sm leading-[1.95] text-zinc-600 dark:text-zinc-400";
-const actionLink =
-  "inline-flex min-h-11 items-center border-b border-zinc-400 px-0.5 text-sm font-medium tracking-[-0.02em] transition-colors hover:border-zinc-950 hover:text-zinc-600 focus-visible:outline-2 focus-visible:outline-offset-4 dark:border-zinc-600 dark:hover:border-zinc-100 dark:hover:text-zinc-300";
+type HomeSectionProps = Readonly<{
+  id: string;
+  headingId: string;
+  children: ReactNode;
+  variant?: "default" | "contact";
+}>;
+
+/** Shared structure for the four homepage sections. */
+function HomeSection({ id, headingId, children, variant = "default" }: HomeSectionProps) {
+  return (
+    <section
+      id={id}
+      aria-labelledby={headingId}
+      className={cn(
+        "mx-auto grid w-[calc(100%-2.5rem)] max-w-280 grid-cols-1 border-t border-zinc-200 py-20 sm:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] dark:border-zinc-800",
+        variant === "contact"
+          ? "gap-12 md:grid-cols-[1fr_.45fr] md:gap-10 md:py-28"
+          : "gap-8 md:grid-cols-[.84fr_1.16fr] md:gap-x-[clamp(2.75rem,10vw,8.75rem)] md:py-24",
+      )}
+    >
+      {children}
+    </section>
+  );
+}
+
+type SectionIntroProps = Readonly<{
+  number: string;
+  label: string;
+  headingId: string;
+  children: ReactNode;
+  size?: "default" | "large";
+}>;
+
+/** Repeated homepage heading treatment, with a larger contact heading. */
+function SectionIntro({ number, label, headingId, children, size = "default" }: SectionIntroProps) {
+  return (
+    <div>
+      <p className="mb-6 flex items-center gap-3 font-mono text-[10px] font-semibold tracking-[.095em] text-zinc-600 dark:text-zinc-400">
+        {number} <span className="inline-block h-px w-6 bg-zinc-300 dark:bg-zinc-700" /> {label}
+      </p>
+      <h2
+        id={headingId}
+        className={cn(
+          "leading-[1.17] font-semibold tracking-[-0.048em]",
+          size === "large"
+            ? "text-[clamp(3rem,8vw,4.5rem)] md:text-[clamp(3rem,5vw,4.5rem)]"
+            : "text-[clamp(2.25rem,3.4vw,3.125rem)]",
+        )}
+      >
+        {children}
+      </h2>
+    </div>
+  );
+}
 
 export default function Home() {
   const [now, setNow] = useState<Date | null>(null);
@@ -154,7 +237,7 @@ export default function Home() {
     };
   }, [activeImage]);
 
-  function openImage(image: GalleryImage, element: HTMLElement) {
+  function openImage(image: GalleryImage, element: HTMLElement): void {
     opener.current = element;
     setActiveImage(image);
   }
@@ -163,7 +246,7 @@ export default function Home() {
     <div className="min-h-svh">
       <main id="main">
         <section
-          className={`${container} relative grid grid-cols-1 items-center gap-12 pt-28 pb-20 md:grid-cols-[minmax(0,1.45fr)_minmax(0,.9fr)] md:gap-[clamp(2.5rem,8vw,7.25rem)] md:pt-36 md:pb-28`}
+          className="relative mx-auto grid w-[calc(100%-2.5rem)] max-w-280 grid-cols-1 items-center gap-12 pt-28 pb-20 sm:w-[calc(100%-4rem)] md:grid-cols-[minmax(0,1.45fr)_minmax(0,.9fr)] md:gap-[clamp(2.5rem,8vw,7.25rem)] md:pt-36 md:pb-28 lg:w-[calc(100%-6rem)]"
           aria-labelledby="hero-title"
         >
           <div className="absolute top-7 right-0 md:top-10">
@@ -189,21 +272,16 @@ export default function Home() {
               interfaces and a better developer experience.
             </p>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-              <a
+              <ActionLink
                 href={GITHUB_PROFILE}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={actionLink}
                 aria-label="Explore my GitHub profile"
               >
                 GitHub
-              </a>
-              <Link href="/cv" className={actionLink}>
-                CV
-              </Link>
-              <a href={`mailto:${PROFILE.email}`} className={actionLink}>
-                Email
-              </a>
+              </ActionLink>
+              <ActionLink href="/cv">CV</ActionLink>
+              <ActionLink href={`mailto:${PROFILE.email}`}>Email</ActionLink>
             </div>
           </div>
           <figure className="m-0 w-full max-w-105 justify-self-start md:max-w-97.5 md:justify-self-end">
@@ -220,33 +298,24 @@ export default function Home() {
           </figure>
         </section>
 
-        <section
-          id="about"
-          className={`${container} grid grid-cols-1 gap-8 border-t border-zinc-200 py-20 md:grid-cols-[.84fr_1.16fr] md:gap-x-[clamp(2.75rem,10vw,8.75rem)] md:py-24 dark:border-zinc-800`}
-          aria-labelledby="about-title"
-        >
-          <div>
-            <p className={sectionLabel}>
-              01 <span className={labelRule} /> ABOUT
-            </p>
-            <h2 id="about-title" className={sectionHeading}>
-              Good software is
-              <br />
-              in the details.
-            </h2>
-          </div>
+        <HomeSection id="about" headingId="about-title">
+          <SectionIntro number="01" label="ABOUT" headingId="about-title">
+            Good software is
+            <br />
+            in the details.
+          </SectionIntro>
           <div>
             <p className="mb-6 text-[19px] leading-[1.65] font-medium tracking-[-0.015em]">
               I’m a front-end and mobile developer focused on building production apps that feel
               fast, clean, and reliable.
             </p>
-            <p className={bodyCopy}>
+            <p className="mb-5 text-sm leading-[1.95] text-zinc-600 dark:text-zinc-400">
               I’m most passionate about software development and developer experience (DX): reducing
               friction, keeping codebases maintainable, and making delivery predictable. I enjoy
               setting up solid foundations—shared UI patterns, reusable modules, automation scripts,
               and CI checks—so teams can move quickly without breaking things.
             </p>
-            <p className={bodyCopy}>
+            <p className="mb-5 text-sm leading-[1.95] text-zinc-600 dark:text-zinc-400">
               When I’m building, I care about performance, state management, realtime behavior, and
               clean UX. I like owning features end-to-end, from implementation to release, and I’m
               happiest when the product and the workflow both feel smooth.
@@ -277,33 +346,26 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </HomeSection>
 
-        <section
-          id="open-source"
-          className={`${container} grid grid-cols-1 gap-8 border-t border-zinc-200 py-20 md:grid-cols-[.84fr_1.16fr] md:gap-x-[clamp(2.75rem,10vw,8.75rem)] md:py-24 dark:border-zinc-800`}
-          aria-labelledby="open-source-title"
-        >
+        <HomeSection id="open-source" headingId="open-source-title">
           <div>
-            <p className={sectionLabel}>
-              02 <span className={labelRule} /> OPEN SOURCE
-            </p>
-            <h2 id="open-source-title" className={sectionHeading}>
+            <SectionIntro number="02" label="OPEN SOURCE" headingId="open-source-title">
               Built to be
               <br />
               shared.
-            </h2>
+            </SectionIntro>
             <p className="mt-5 max-w-75 text-sm leading-[1.85] text-zinc-600 dark:text-zinc-400">
               Small, practical tools I build and share with other developers.
             </p>
-            <a
+            <ActionLink
               href={GITHUB_PROFILE}
-              className={`${actionLink} mt-4`}
+              className="mt-4"
               target="_blank"
               rel="noopener noreferrer"
             >
               Explore my GitHub
-            </a>
+            </ActionLink>
           </div>
           <div className="space-y-5">
             {PACKAGES.map((pkg, index) => (
@@ -333,51 +395,27 @@ export default function Home() {
                   </code>
                 </div>
                 <div className="flex flex-wrap items-center gap-x-7 gap-y-2 pt-3">
-                  <a
-                    href={pkg.demo}
-                    className={actionLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <ActionLink href={pkg.demo} target="_blank" rel="noopener noreferrer">
                     Live demo
-                  </a>
-                  <a
-                    href={pkg.github}
-                    className={actionLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  </ActionLink>
+                  <ActionLink href={pkg.github} target="_blank" rel="noopener noreferrer">
                     GitHub
-                  </a>
-                  <a
-                    href={pkg.npm}
-                    className={actionLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  </ActionLink>
+                  <ActionLink href={pkg.npm} target="_blank" rel="noopener noreferrer">
                     npm
-                  </a>
+                  </ActionLink>
                 </div>
               </article>
             ))}
           </div>
-        </section>
+        </HomeSection>
 
-        <section
-          id="appearances"
-          className={`${container} grid grid-cols-1 gap-8 border-t border-zinc-200 py-20 md:grid-cols-[.84fr_1.16fr] md:gap-x-[clamp(2.75rem,10vw,8.75rem)] md:py-24 dark:border-zinc-800`}
-          aria-labelledby="appearances-title"
-        >
-          <div>
-            <p className={sectionLabel}>
-              03 <span className={labelRule} /> APPEARANCES
-            </p>
-            <h2 id="appearances-title" className={sectionHeading}>
-              Sharing ideas
-              <br />
-              beyond the screen.
-            </h2>
-          </div>
+        <HomeSection id="appearances" headingId="appearances-title">
+          <SectionIntro number="03" label="APPEARANCES" headingId="appearances-title">
+            Sharing ideas
+            <br />
+            beyond the screen.
+          </SectionIntro>
           <div>
             {APPEARANCES.map((appearance) => (
               <article
@@ -436,25 +474,15 @@ export default function Home() {
               </article>
             ))}
           </div>
-        </section>
+        </HomeSection>
 
-        <section
-          id="contact"
-          className={`${container} grid grid-cols-1 gap-12 border-t border-zinc-200 py-20 md:grid-cols-[1fr_.45fr] md:gap-10 md:py-28 dark:border-zinc-800`}
-          aria-labelledby="contact-title"
-        >
+        <HomeSection id="contact" headingId="contact-title" variant="contact">
           <div>
-            <p className={sectionLabel}>
-              04 <span className={labelRule} /> CONTACT
-            </p>
-            <h2
-              id="contact-title"
-              className="text-[clamp(3rem,8vw,4.5rem)] leading-[1.17] font-semibold tracking-[-0.048em] md:text-[clamp(3rem,5vw,4.5rem)]"
-            >
+            <SectionIntro number="04" label="CONTACT" headingId="contact-title" size="large">
               Have something
               <br />
               in mind?
-            </h2>
+            </SectionIntro>
             <p className="my-6 max-w-105 text-sm leading-[1.8] text-zinc-600 dark:text-zinc-400">
               Whether it’s a project, an idea, or just a conversation—feel free to reach out.
             </p>
@@ -483,7 +511,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </HomeSection>
       </main>
 
       {activeImage && (

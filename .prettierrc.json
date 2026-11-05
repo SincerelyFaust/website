@@ -8,5 +8,6 @@
   "tabWidth": 2,
   "endOfLine": "lf",
   "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindStylesheet": "./app/globals.css"
+  "tailwindStylesheet": "./app/globals.css",
+  "tailwindFunctions": ["cn"]
 }
