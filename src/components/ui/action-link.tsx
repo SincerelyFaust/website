@@ -1,5 +1,7 @@
-import Link from "next/link";
 import type { ComponentProps } from "react";
+
+import Link from "next/link";
+
 import { cn } from "@/lib/utils";
 
 type ActionLinkProps = ComponentProps<typeof Link>;

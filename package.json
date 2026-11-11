@@ -10,10 +10,14 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc6 --noEmit",
+    "typecheck": "pnpm run typegen && tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "pnpm run lint && pnpm run typecheck && pnpm run format:check"
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run format:check && pnpm run knip",
+    "typegen": "next typegen",
+    "knip": "knip",
+    "analyze": "next experimental-analyze",
+    "analyze:output": "next experimental-analyze --output"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -26,12 +30,14 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.5",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@typescript/native": "npm:typescript@^7.0.2",
     "eslint": "^10.14.0",
     "eslint-config-next": "16.4.6",
+    "knip": "^6.44.2",
     "prettier": "^3.9.10",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.5",

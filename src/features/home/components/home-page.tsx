@@ -1,13 +1,22 @@
 "use client";
 
+import { type ReactNode, useEffect, useState } from "react";
+
+import type { Route } from "next";
+
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
-import ActionLink from "./components/action-link";
-import ThemeToggle from "./components/theme-toggle";
+
+import ThemeToggle from "@/components/theme/theme-toggle";
+import ActionLink from "@/components/ui/action-link";
+
 import { cn } from "@/lib/utils";
+
+import type { GalleryImage } from "../types";
+import PhotoGallery from "./photo-gallery";
 
 dayjs.extend(customParseFormat);
 
@@ -35,11 +44,6 @@ type NpmPackage = Readonly<{
   github: string;
   npm: string;
   demo: string;
-}>;
-
-type GalleryImage = Readonly<{
-  src: string;
-  caption: string;
 }>;
 
 type Appearance = Readonly<{
@@ -205,10 +209,7 @@ function SectionIntro({ number, label, headingId, children, size = "default" }: 
 
 export default function Home() {
   const [now, setNow] = useState<Date | null>(null);
-  const [activeImage, setActiveImage] = useState<GalleryImage | null>(null);
-  const closeButton = useRef<HTMLButtonElement>(null);
-  const opener = useRef<HTMLElement | null>(null);
-  const age = dayjs().diff(dayjs(PROFILE.birthdate, "DD/MM/YYYY"), "year");
+  const age = now ? dayjs(now).diff(dayjs(PROFILE.birthdate, "DD/MM/YYYY"), "year") : null;
 
   useEffect(() => {
     const updateTime = () => setNow(new Date());
@@ -220,27 +221,6 @@ export default function Home() {
       window.clearInterval(interval);
     };
   }, []);
-
-  useEffect(() => {
-    if (!activeImage) return;
-    const oldOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    closeButton.current?.focus();
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setActiveImage(null);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.body.style.overflow = oldOverflow;
-      window.removeEventListener("keydown", onKeyDown);
-      opener.current?.focus();
-    };
-  }, [activeImage]);
-
-  function openImage(image: GalleryImage, element: HTMLElement): void {
-    opener.current = element;
-    setActiveImage(image);
-  }
 
   return (
     <div className="min-h-svh">
@@ -330,7 +310,7 @@ export default function Home() {
               </div>
               <div className="flex min-w-0 flex-col items-start gap-2">
                 <span className="text-[11px] text-zinc-500">Age</span>
-                <strong className="text-xs leading-normal font-semibold">{age}</strong>
+                <strong className="text-xs leading-normal font-semibold">{age ?? "—"}</strong>
               </div>
               <div className="flex min-w-0 flex-col items-start gap-2">
                 <span className="text-[11px] text-zinc-500">Local time · Zagreb</span>
@@ -448,29 +428,7 @@ export default function Home() {
                     ))}
                   </ul>
                 </div>
-                <div
-                  className="grid grid-cols-3 gap-1.5 sm:gap-2"
-                  aria-label={`${appearance.conference} photos`}
-                >
-                  {appearance.images.map((photo, index) => (
-                    <button
-                      className="group relative aspect-[1.35] cursor-pointer overflow-hidden rounded-sm bg-zinc-200 focus-visible:outline-2 focus-visible:outline-offset-2 dark:bg-zinc-800"
-                      key={photo.src}
-                      type="button"
-                      aria-label={`View photo ${index + 1}: ${photo.caption}`}
-                      onClick={(event) => openImage(photo, event.currentTarget)}
-                    >
-                      <Image
-                        src={photo.src}
-                        alt={photo.caption}
-                        fill
-                        sizes="(max-width: 600px) 33vw, 230px"
-                        className="object-cover grayscale group-hover:opacity-85"
-                      />
-                    </button>
-                  ))}
-                </div>
-                <p className="mt-3 text-[10px] text-zinc-500">Select a photo to view it larger.</p>
+                <PhotoGallery conference={appearance.conference} images={appearance.images} />
               </article>
             ))}
           </div>
@@ -501,7 +459,7 @@ export default function Home() {
               {SOCIAL.map((social) => (
                 <Link
                   key={social.label}
-                  href={social.href}
+                  href={social.href as Route}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between border-b border-zinc-200 py-3 text-xs hover:text-zinc-500 dark:border-zinc-800"
@@ -513,57 +471,6 @@ export default function Home() {
           </div>
         </HomeSection>
       </main>
-
-      {activeImage && (
-        <div
-          className="fixed inset-0 z-20 flex items-center justify-center bg-black/80 p-4 sm:p-6"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) setActiveImage(null);
-          }}
-        >
-          <div
-            className="w-full max-w-225 rounded-md border border-zinc-200 bg-white p-4 shadow-2xl dark:border-zinc-700 dark:bg-zinc-900"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Appearance photo preview"
-          >
-            <div className="flex items-center justify-between gap-4 pb-3 font-mono text-[10px] font-semibold tracking-[.07em] text-zinc-500">
-              <span>PHOTO PREVIEW</span>
-              <button
-                ref={closeButton}
-                className="flex size-8 cursor-pointer items-center justify-center rounded border border-zinc-300 text-sm text-zinc-950 hover:bg-zinc-100 focus-visible:outline-2 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
-                type="button"
-                onClick={() => setActiveImage(null)}
-                aria-label="Close photo preview"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="relative h-[min(64svh,630px)] w-full bg-zinc-200 dark:bg-zinc-800">
-              <Image
-                src={activeImage.src}
-                alt={activeImage.caption}
-                fill
-                sizes="(max-width: 900px) 90vw, 850px"
-                className="object-contain"
-              />
-            </div>
-            <div className="flex flex-col items-start justify-between gap-3 pt-4 sm:flex-row sm:items-center">
-              <p className="text-[11px] leading-normal text-zinc-600 dark:text-zinc-400">
-                {activeImage.caption}
-              </p>
-              <a
-                className="shrink-0 border-b border-current pb-1 text-[11px] hover:text-zinc-500"
-                href={activeImage.src}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View full image
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

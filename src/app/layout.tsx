@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
+
 import { DM_Sans, IBM_Plex_Mono } from "next/font/google";
-import ThemeProvider from "./components/theme-provider";
+
+import ThemeProvider from "@/components/theme/theme-provider";
+
+import { SITE_DESCRIPTION, SITE_NAME, SOCIAL_IMAGE, getSiteUrl } from "@/lib/seo";
+
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -17,54 +22,52 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Marin Heđeš",
-  description: "Front-end and mobile developer",
+  metadataBase: getSiteUrl(),
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
   keywords: [
     "portfolio",
     "marin heđeš",
     "faust",
     "personal website",
     "sincerelyfaust",
-    "founder",
     "developer",
     "frontend developer",
     "mobile developer",
     "software engineer",
   ],
   alternates: {
-    canonical: "https://www.marinhedes.com",
+    canonical: "/",
   },
   openGraph: {
     type: "website",
-    url: "https://www.marinhedes.com",
-    title: "Marin Heđeš",
-    siteName: "Marin Heđeš",
-    description: "Front-end and mobile developer",
-    images: [
-      {
-        url: "https://avatars.githubusercontent.com/u/44751736?v=4",
-      },
-    ],
+    url: "/",
+    title: SITE_NAME,
+    siteName: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    locale: "en_US",
+    images: [SOCIAL_IMAGE],
+  },
+  twitter: {
+    card: "summary",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: [SOCIAL_IMAGE],
   },
   appleWebApp: {
     capable: true,
-    title: "Marin Heđeš",
+    title: SITE_NAME,
     statusBarStyle: "default",
   },
   manifest: "/site.webmanifest",
   icons: {
     icon: [
       { url: "/images/favicon/favicon.ico" },
-      {
-        url: "/images/favicon/favicon-32x32.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-      {
-        url: "/images/favicon/favicon-16x16.png",
-        sizes: "16x16",
-        type: "image/png",
-      },
+      { url: "/images/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
     apple: [{ url: "/images/favicon/apple-touch-icon.png", sizes: "180x180" }],
   },
@@ -80,6 +83,12 @@ export default function RootLayout({
       <body
         className={`${dmSans.variable} ${ibmPlexMono.variable} min-h-svh bg-[#fafafa] font-sans text-zinc-950 antialiased dark:bg-[#101010] dark:text-zinc-100`}
       >
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-sm focus:bg-white focus:px-4 focus:py-2 focus:text-zinc-950 focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

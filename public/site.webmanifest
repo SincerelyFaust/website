@@ -1,6 +1,6 @@
 {
-  "name": "website",
-  "short_name": "website",
+  "name": "Marin Heđeš — Portfolio",
+  "short_name": "Marin Heđeš",
   "icons": [
     {
       "src": "/images/favicon/android-chrome-192x192.png",
@@ -13,7 +13,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#e4cdac",
-  "background_color": "#e4cdac",
-  "display": "standalone"
+  "theme_color": "#fafafa",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "description": "Front-end and mobile developer portfolio"
 }
