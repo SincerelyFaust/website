@@ -2,16 +2,13 @@
 
 import { type ReactNode, useEffect, useState } from "react";
 
-import type { Route } from "next";
-
 import Image from "next/image";
-import Link from "next/link";
 
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 
 import ThemeToggle from "@/components/theme/theme-toggle";
-import ActionLink from "@/components/ui/action-link";
+import ActionLink, { ActionAnchor } from "@/components/ui/action-link";
 
 import { cn } from "@/lib/utils";
 
@@ -252,16 +249,16 @@ export default function Home() {
               interfaces and a better developer experience.
             </p>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-              <ActionLink
+              <ActionAnchor
                 href={GITHUB_PROFILE}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Explore my GitHub profile"
               >
                 GitHub
-              </ActionLink>
+              </ActionAnchor>
               <ActionLink href="/cv">CV</ActionLink>
-              <ActionLink href={`mailto:${PROFILE.email}`}>Email</ActionLink>
+              <ActionAnchor href={`mailto:${PROFILE.email}`}>Email</ActionAnchor>
             </div>
           </div>
           <figure className="m-0 w-full max-w-105 justify-self-start md:max-w-97.5 md:justify-self-end">
@@ -338,14 +335,14 @@ export default function Home() {
             <p className="mt-5 max-w-75 text-sm leading-[1.85] text-zinc-600 dark:text-zinc-400">
               Small, practical tools I build and share with other developers.
             </p>
-            <ActionLink
+            <ActionAnchor
               href={GITHUB_PROFILE}
               className="mt-4"
               target="_blank"
               rel="noopener noreferrer"
             >
               Explore my GitHub
-            </ActionLink>
+            </ActionAnchor>
           </div>
           <div className="space-y-5">
             {PACKAGES.map((pkg, index) => (
@@ -375,15 +372,15 @@ export default function Home() {
                   </code>
                 </div>
                 <div className="flex flex-wrap items-center gap-x-7 gap-y-2 pt-3">
-                  <ActionLink href={pkg.demo} target="_blank" rel="noopener noreferrer">
+                  <ActionAnchor href={pkg.demo} target="_blank" rel="noopener noreferrer">
                     Live demo
-                  </ActionLink>
-                  <ActionLink href={pkg.github} target="_blank" rel="noopener noreferrer">
+                  </ActionAnchor>
+                  <ActionAnchor href={pkg.github} target="_blank" rel="noopener noreferrer">
                     GitHub
-                  </ActionLink>
-                  <ActionLink href={pkg.npm} target="_blank" rel="noopener noreferrer">
+                  </ActionAnchor>
+                  <ActionAnchor href={pkg.npm} target="_blank" rel="noopener noreferrer">
                     npm
-                  </ActionLink>
+                  </ActionAnchor>
                 </div>
               </article>
             ))}
@@ -457,15 +454,15 @@ export default function Home() {
             </span>
             <div className="border-t border-zinc-200 dark:border-zinc-800">
               {SOCIAL.map((social) => (
-                <Link
+                <a
                   key={social.label}
-                  href={social.href as Route}
+                  href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between border-b border-zinc-200 py-3 text-xs hover:text-zinc-500 dark:border-zinc-800"
                 >
                   {social.label}
-                </Link>
+                </a>
               ))}
             </div>
           </div>

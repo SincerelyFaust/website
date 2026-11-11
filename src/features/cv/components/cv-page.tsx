@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 
 import ThemeToggle from "@/components/theme/theme-toggle";
-import ActionLink from "@/components/ui/action-link";
+import { ActionAnchor } from "@/components/ui/action-link";
 
 const pdfPath = "/cv/cv.pdf";
 
@@ -204,17 +204,17 @@ export default function CVPage() {
               </p>
             </div>
             <div className="flex shrink-0 flex-wrap items-center gap-x-8 gap-y-2">
-              <ActionLink
+              <ActionAnchor
                 href={pdfPath}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open the original CV PDF in a new tab"
               >
                 Open PDF
-              </ActionLink>
-              <ActionLink href={pdfPath} download aria-label="Download the original CV PDF">
+              </ActionAnchor>
+              <ActionAnchor href={pdfPath} download aria-label="Download the original CV PDF">
                 Download PDF
-              </ActionLink>
+              </ActionAnchor>
             </div>
           </div>
         </header>
@@ -231,22 +231,22 @@ export default function CVPage() {
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-sm">
-            <ActionLink href="mailto:hedesmarin@gmail.com">Email</ActionLink>
-            <ActionLink
+            <ActionAnchor href="mailto:hedesmarin@gmail.com">Email</ActionAnchor>
+            <ActionAnchor
               href="https://github.com/sincerelyfaust"
               target="_blank"
               rel="noopener noreferrer"
             >
               GitHub
-            </ActionLink>
-            <ActionLink
+            </ActionAnchor>
+            <ActionAnchor
               href="https://linkedin.com/in/marinhedes"
               target="_blank"
               rel="noopener noreferrer"
             >
               LinkedIn
-            </ActionLink>
-            <ActionLink href="tel:+385957756683">+385 95 775 6683</ActionLink>
+            </ActionAnchor>
+            <ActionAnchor href="tel:+385957756683">+385 95 775 6683</ActionAnchor>
           </div>
         </CVSection>
 

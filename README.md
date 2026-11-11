@@ -31,16 +31,16 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Available Scripts
 
-| Command | Description |
-|---|---|
-| `pnpm dev` | Start the development server |
-| `pnpm build` | Build for production |
-| `pnpm start` | Start the production server |
-| `pnpm lint` | Run ESLint |
-| `pnpm typecheck` | Run TypeScript checks |
-| `pnpm format` | Format code with Prettier |
-| `pnpm check` | Run code quality checks |
-| `pnpm analyze` | Analyze the application bundle |
+| Command          | Description                    |
+| ---------------- | ------------------------------ |
+| `pnpm dev`       | Start the development server   |
+| `pnpm build`     | Build for production           |
+| `pnpm start`     | Start the production server    |
+| `pnpm lint`      | Run ESLint                     |
+| `pnpm typecheck` | Run TypeScript checks          |
+| `pnpm format`    | Format code with Prettier      |
+| `pnpm check`     | Run code quality checks        |
+| `pnpm analyze`   | Analyze the application bundle |
 
 ## Project Structure
 
