@@ -333,7 +333,7 @@ export default function Home() {
               shared.
             </SectionIntro>
             <p className="mt-5 max-w-75 text-sm leading-[1.85] text-zinc-600 dark:text-zinc-400">
-              Small, practical tools I build and share with other developers.
+              Small, practical tools and applications I build and share with other developers.
             </p>
             <ActionAnchor
               href={GITHUB_PROFILE}
