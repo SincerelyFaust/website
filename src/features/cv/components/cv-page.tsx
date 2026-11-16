@@ -5,7 +5,16 @@ import Link from "next/link";
 import ThemeToggle from "@/components/theme/theme-toggle";
 import { ActionAnchor } from "@/components/ui/action-link";
 
-const pdfPath = "/cv/cv.pdf";
+type CVDocument = Readonly<{
+  language: "English" | "Croatian";
+  href: string;
+  filename: string;
+}>;
+
+const cvDocuments: readonly CVDocument[] = [
+  { language: "English", href: "/cv/cv.pdf", filename: "cv.pdf" },
+  { language: "Croatian", href: "/cv/cv-croatian.pdf", filename: "cv-croatian.pdf" },
+];
 
 type Experience = Readonly<{
   role: string;
@@ -34,12 +43,12 @@ type CVSectionProps = Readonly<{
 const experiences: readonly Experience[] = [
   {
     role: "Freelance Software Developer",
-    organization: "Self-employed",
-    period: "Dec 2025 — Present",
+    organization: "SerpDomains",
+    period: "Dec 2025 — Aug 2026",
     description:
-      "Independent software developer specializing in modern web applications, frontend architecture, and end-to-end feature development. Working with clients on scalable, maintainable solutions, from user-facing interfaces to complex business workflows and third-party integrations.",
+      "Developed and maintained frontend applications for SerpDomains, including its domain marketplace, administrative backoffice, and domain landing platform. Focused on responsive user interfaces, complex business workflows, and third-party integrations.",
     highlights: [
-      "Selected Project — SerpDomains: Developed three interconnected React and TypeScript applications covering a domain marketplace, administrative backoffice, and domain landing platform.",
+      "Developed three interconnected React and TypeScript applications covering a domain marketplace, administrative backoffice, and domain landing platform.",
       "Integrated Stripe, PayPal, cryptocurrency, and wallet-based payments, implementing checkout workflows, payment verification, transaction handling, and error recovery.",
       "Built customer, seller, and administrative dashboards supporting domain management, bulk uploads, DNS verification, order processing, and domain transfers.",
       "Implemented affiliate systems, real-time customer support, content management, marketing tools, and operational analytics.",
@@ -133,7 +142,7 @@ const skillGroups: readonly SkillGroup[] = [
   {
     title: "Tools & Practices",
     values:
-      "Git, CI/CD, GitHub Actions, pnpm Workspaces, Monorepos, i18n, Location-Based Services, Agile Development",
+      "Git, CI/CD, GitHub Actions, pnpm Workspaces, Monorepos, npm Package Development, i18n, Location-Based Services, Agile Development",
   },
   {
     title: "Testing & Monitoring",
@@ -203,18 +212,29 @@ export default function CVPage() {
                 Slavonski Brod, Croatia
               </p>
             </div>
-            <div className="flex shrink-0 flex-wrap items-center gap-x-8 gap-y-2">
-              <ActionAnchor
-                href={pdfPath}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the original CV PDF in a new tab"
-              >
-                Open PDF
-              </ActionAnchor>
-              <ActionAnchor href={pdfPath} download aria-label="Download the original CV PDF">
-                Download PDF
-              </ActionAnchor>
+            <div className="grid shrink-0 gap-2" role="group" aria-label="CV PDF files">
+              {cvDocuments.map((cvDocument) => (
+                <div key={cvDocument.language} className="flex flex-wrap items-center gap-x-6 gap-y-1">
+                  <span className="w-18 font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
+                    {cvDocument.language}
+                  </span>
+                  <ActionAnchor
+                    href={cvDocument.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${cvDocument.language} CV PDF in a new tab`}
+                  >
+                    Open
+                  </ActionAnchor>
+                  <ActionAnchor
+                    href={cvDocument.href}
+                    download={cvDocument.filename}
+                    aria-label={`Download ${cvDocument.language} CV PDF`}
+                  >
+                    Download
+                  </ActionAnchor>
+                </div>
+              ))}
             </div>
           </div>
         </header>
@@ -344,7 +364,7 @@ export default function CVPage() {
                   CERTIFICATES
                 </p>
                 <a
-                  href="https://www.freecodecamp.org/certification/SincerelyFaust/responsive-web-design"
+                  href="https://www.freecodecamp.org/certification/sincerelyfaust/responsive-web-design"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex border-b border-zinc-400 pb-1 text-sm font-medium transition-colors hover:border-zinc-950 dark:border-zinc-600 dark:hover:border-zinc-100"
