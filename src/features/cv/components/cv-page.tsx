@@ -44,7 +44,7 @@ const experiences: readonly Experience[] = [
   {
     role: "Freelance Software Developer",
     organization: "SerpDomains",
-    period: "Dec 2025 — Aug 2026",
+    period: "Dec 2025 – Aug 2026",
     description:
       "Developed and maintained frontend applications for SerpDomains, including its domain marketplace, administrative backoffice, and domain landing platform. Focused on responsive user interfaces, complex business workflows, and third-party integrations.",
     highlights: [
@@ -59,13 +59,13 @@ const experiences: readonly Experience[] = [
   {
     role: "Seasonal Worker",
     organization: "Seasonal Employment",
-    period: "22 Jul 2026 — 9 Oct 2026",
+    period: "July 2026 – Oct 2026",
     highlights: [],
   },
   {
     role: "Lead Front-end & Mobile Developer",
     organization: "Beyondi d.o.o.",
-    period: "Oct 2023 — Nov 2025",
+    period: "Oct 2023 – Nov 2025",
     description:
       "Led the development of production web and mobile applications using Angular and Flutter, overseeing architecture, engineering delivery, and application releases.",
     highlights: [
@@ -82,14 +82,14 @@ const experiences: readonly Experience[] = [
   {
     role: "Assistant worker in production",
     organization: "Vitafoam Croatia",
-    period: "Mar 2021 — Jul 2023",
+    period: "Mar 2021 – July 2023",
     description: "Assisted production operations and supported manufacturing workflows.",
     highlights: [],
   },
   {
     role: "Construction worker",
     organization: "Vertex Inženjering",
-    period: "Sep 2019 — Oct 2019",
+    period: "Sept 2019 – Oct 2019",
     description:
       "Supported day-to-day on-site operations and assisted the team with assigned tasks.",
     highlights: [],
@@ -214,7 +214,10 @@ export default function CVPage() {
             </div>
             <div className="grid shrink-0 gap-2" role="group" aria-label="CV PDF files">
               {cvDocuments.map((cvDocument) => (
-                <div key={cvDocument.language} className="flex flex-wrap items-center gap-x-6 gap-y-1">
+                <div
+                  key={cvDocument.language}
+                  className="flex flex-wrap items-center gap-x-6 gap-y-1"
+                >
                   <span className="w-18 font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
                     {cvDocument.language}
                   </span>
@@ -239,7 +242,7 @@ export default function CVPage() {
           </div>
         </header>
 
-        <CVSection number="01" title="Profile">
+        <CVSection number="01" title="Summary">
           <div className="max-w-165 space-y-3 text-[17px] leading-[1.85] tracking-[-0.015em] sm:text-lg">
             <p>
               Front-end &amp; mobile developer building production web and mobile apps with React
@@ -348,11 +351,11 @@ export default function CVPage() {
                   Industrijsko-obrtnička škola, Slavonski Brod
                 </h3>
                 <p className="shrink-0 font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
-                  Sep 2016 — Jun 2019
+                  Sept 2016 – June 2019
                 </p>
               </div>
               <p className="mt-2 text-sm leading-[1.8] text-zinc-600 dark:text-zinc-400">
-                High School — Computer Numerically Controlled (CNC) Machinist
+                High School in Computer Numerically Controlled (CNC) Machinist
               </p>
               <p className="mt-1 text-sm leading-[1.8] text-zinc-600 dark:text-zinc-400">
                 High school diploma program focused on CNC machining.
@@ -371,7 +374,7 @@ export default function CVPage() {
                 >
                   Responsive Web Design (freeCodeCamp)
                 </a>
-                <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">2023</p>
+                <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Jan 2023</p>
               </div>
               <div>
                 <p className="mb-3 font-mono text-[10px] font-semibold tracking-[0.095em] text-zinc-600 dark:text-zinc-400">
